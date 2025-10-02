@@ -1,16 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/styles.css" />
-    <title>J-Computer Engineering </title>
-    <h1>Hello World!</h1>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>J-Computer Engineering</title>
 
-    <link rel="icon" type="image/svg" href="./assets/IMAGOTIPO 2.svg">
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="img/IMAGOTIPO 2.svg" />
+
+  <!-- Open Graph / Share Thumbnail -->
+  <meta property="og:title" content="J-Computer Engineering" />
+  <meta property="og:description" content="Portafolio de Joseph Murillo — Senior Software & Full-Stack Developer." />
+  <meta property="og:image" content="https://<jmurillo>.github.io/<RepositorioPRO>/img/IMAGOTIPO2.svg" />
+  <meta property="og:url" content="https://<jmurillo>.github.io/<RepositorioPRO>/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    
-    <script src="./src/script.js"></script>
+  <header class="site-header">
+    <h1>J-Computer Engineering</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="card">
+      <img src="img/profile.jpg" alt="Profile" class="avatar"/>
+      <div>
+        <h2>Hi, Im Joseph</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio dolorem sequi magni dicta porro dolor, tempore itaque ipsum minima iusto molestias praesentium? Iusto ea sint non natus illum cupiditate excepturi eaque quibusdam. Veniam, in obcaecati necessitatibus ratione accusamus iure! Eveniet ducimus, at ipsum ullam obcaecati vel dicta! Eius, at accusamus. Commodi!</p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="project">
+          <a href="projects/project-1.html">
+            <img src="img/og-thumbnail.jpg" alt="img-project-1" class="thumb"/>
+            <h3>Lorem, ipsum dolor.</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat delectus mollitia ipsa earum rem amet tempore blanditiis libero, id optio.</p>
+          </a>
+        </article>
+        <!-- agrega más proyectos aquí -->
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:you@example.com">josephmurillo1621@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/joseph-murillo" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/jfmurillo" target="_blank">GitHub</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Joseph Murillo</small>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
 </body>
 </html>
