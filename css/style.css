@@ -1,4 +1,6 @@
-
+/* =========================================
+   PALETA PERSONALIZADA
+========================================= */
 :root {
   --main: #001382;
   --main-dark-1: #020120;
@@ -11,21 +13,30 @@
   --font: #ffffff;
 }
 
+/* =========================================
+   RESET & GLOBAL
+========================================= */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  /* background: var(--main-dark-1); */
+  background-image: url("../img/fondo-clean.jpg");
   color: var(--font);
   scroll-behavior: smooth;
-  background-image: url(/RepositorioPRO/img/fondo-clean.jpg);
 }
 
 .section {
   padding: 90px 0;
 }
 
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
 
-   /* HEADER */
+/* =========================================
+   HEADER
+========================================= */
 .site-header {
   position: sticky;
   top: 0;
@@ -55,7 +66,9 @@ nav a:hover {
   color: var(--second);
 }
 
-/* ABOUT ME CARD */
+/* =========================================
+   ABOUT CARD
+========================================= */
 .card {
   background: var(--main-dark-3);
   max-width: 900px;
@@ -74,59 +87,164 @@ nav a:hover {
   border: 3px solid var(--second);
 }
 
+/* =========================================
+   PORTFOLIO CARDS + OVERLAY
+========================================= */
 
-   /* PROJECTS */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
   max-width: 1100px;
   margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
 }
 
 .project {
   position: relative;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 12px;
   background: var(--main-dark-2);
+  transition: .3s ease;
   cursor: pointer;
-  transition: transform .3s ease;
 }
 
 .project img {
   width: 100%;
-  transition: .4s ease;
   display: block;
-}
-
-.project .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(19,48,104,0.75); /* var(--main-mid) with alpha */
-  color: var(--font);
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
-  transition: .3s ease;
+  transition: .4s ease;
 }
 
 .project:hover img {
   transform: scale(1.12);
 }
 
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(19, 48, 104, 0.75);
+  opacity: 0;
+  color: var(--font);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  transition: .3s ease-in-out;
+}
+
 .project:hover .overlay {
   opacity: 1;
 }
 
-.project:hover {
-  transform: translateY(-6px);
+/* =========================================
+   MODAL FREELANCER STYLE (FINAL)
+========================================= */
+
+.modal-freelancer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 3000;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  padding: 40px 10px;
 }
 
+.modal-dialog {
+  background: #fff;
+  color: #000;
+  border-radius: 20px;
+  max-width: 700px;
+  width: 100%;
+  padding: 40px 30px;
+  position: relative;
+  text-align: center;
+  animation: modalPop 0.3s ease;
+}
 
-   /* CONTACT FORM */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 34px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  transition: .2s ease;
+}
+
+.modal-close:hover {
+  color: var(--main);
+}
+
+.modal-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Divider */
+.divider-custom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 30px;
+}
+
+.divider-line {
+  width: 80px;
+  height: 3px;
+  background: #000;
+  border-radius: 2px;
+}
+
+.divider-icon {
+  font-size: 22px;
+  margin: 0 10px;
+}
+
+/* Image */
+.modal-img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.modal-description {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Close button */
+.modal-btn {
+  background: var(--second);
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.modal-btn:hover {
+  background: #2e72ab;
+}
+
+/* Modal animation */
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* =========================================
+   CONTACT FORM
+========================================= */
 .contact-form {
   max-width: 450px;
   margin: auto;
@@ -134,12 +252,6 @@ nav a:hover {
 
 .form-group {
   margin-bottom: 1rem;
-  font-family: "Poppins", sans-serif;
-  font-size: 10;
-}
-
-#message{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 input, textarea {
@@ -173,8 +285,9 @@ input:focus, textarea:focus {
   background: #2e72ab;
 }
 
-
-   /* FOOTER */
+/* =========================================
+   FOOTER
+========================================= */
 .site-footer {
   background: var(--main-dark-1);
   text-align: center;

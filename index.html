@@ -6,13 +6,13 @@
   <title>J-Computer Engineering</title>
 
   <!-- favicon -->
-  <link rel="icon" type="image/png" href="/RepositorioPRO/img/IMAGOTIPO2.svg" />
+  <link rel="icon" type="image/png" href="img/IMAGOTIPO2.svg" />
 
   <!-- Open Graph / Share Thumbnail -->
   <meta property="og:title" content="J-Computer Engineering" />
   <meta property="og:description" content="Portafolio de Joseph Murillo — Senior Software & Full-Stack Developer." />
-  <meta property="og:image" content="https://<jmurillo>.github.io/<RepositorioPRO>/img/IMAGOTIPO2.svg" />
-  <meta property="og:url" content="https://<jmurillo>.github.io/<RepositorioPRO>/" />
+  <meta property="og:image" content="https://jfmurillo.github.io/RepositorioPRO/img/IMAGOTIPO2.svg" />
+  <meta property="og:url" content="https://jfmurillo.github.io/RepositorioPRO/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -36,7 +36,7 @@
 
     <!-- ABOUT -->
     <section id="about" class="card section">
-      <img src="/RepositorioPRO/img/IMAGOTIPO2.svg" alt="Profile" class="avatar"/>
+      <img src="img/IMAGOTIPO2.svg" alt="Profile" class="avatar"/>
       <div>
         <h2>Perfil</h2>
         <p>
@@ -53,36 +53,31 @@
 
       <div class="grid">
 
-        <!-- Proyecto 1 -->
-        <article class="project">
-          <a href="projects/project-1.html">
-            <img src="/RepositorioPRO/img/estetoscopio.png" alt="img-project-1" class="thumb"/>
-            <div class="overlay">
-              <h3>SIMECID</h3>
-              <p>Plataforma de Citas Médicas</p>
-            </div>
-          </a>
+        <!-- SIMECID -->
+        <article class="project" onclick="openModal('modal-simecid')">
+          <img src="img/estetoscopio.png" class="thumb"/>
+          <div class="overlay">
+            <h3>SIMECID</h3>
+            <p>Plataforma de Citas Médicas</p>
+          </div>
         </article>
 
-        <!-- Proyecto 2 -->
-        <article class="project">
-          <a href="projects/project-2.html">
-            <img src="/RepositorioPRO/img/Imagen_Computadora.jpeg" alt="img-project-2" class="thumb"/>
-            <div class="overlay">
-              <h3>Linked</h3>
-              <p>Portal de Empleo.</p>
-            </div>
-          </a>
+        <!-- LINKED -->
+        <article class="project" onclick="openModal('modal-linked')">
+          <img src="img/Imagen_Computadora.jpeg" class="thumb"/>
+          <div class="overlay">
+            <h3>Linked</h3>
+            <p>Portal de Empleo</p>
+          </div>
         </article>
 
-                <!-- Proyecto 3 -->
-        <article class="project">
-          <a href="projects/project-2.html">
-            <img src="/RepositorioPRO/img/legacyhotel.webp" alt="img-project-2" class="thumb"/>
-            <div class="overlay">
-              <h3>Hotel Management</h3>
-            </div>
-          </a>
+        <!-- HOTEL MANAGEMENT -->
+        <article class="project" onclick="openModal('modal-hotel')">
+          <img src="img/legacyhotel.webp" class="thumb"/>
+          <div class="overlay">
+            <h3>Hotel Management</h3>
+            <p>Java + JavaFX</p>
+          </div>
         </article>
 
       </div>
@@ -110,6 +105,84 @@
 
   </main>
 
+
+  <!-- ============================
+       MODALS — FREELANCER STYLE
+  ============================ -->
+
+  <!-- MODAL SIMECID -->
+  <div id="modal-simecid" class="modal-freelancer">
+    <div class="modal-dialog">
+      <span class="modal-close" onclick="closeModal('modal-simecid')">&times;</span>
+
+      <h2 class="modal-title">SIMECID</h2>
+
+      <div class="divider-custom">
+        <div class="divider-line"></div>
+        <div class="divider-icon">★</div>
+        <div class="divider-line"></div>
+      </div>
+
+      <img src="img/estetoscopio.png" class="modal-img">
+
+      <p class="modal-description">
+        Plataforma web para consulta y reserva de citas médicas.<br>
+        Backend en <b>C#</b> y frontend en <b>HTML, CSS y JavaScript</b>.
+      </p>
+
+      <button class="modal-btn" onclick="closeModal('modal-simecid')">✖ Close Window</button>
+    </div>
+  </div>
+
+  <!-- MODAL LINKED -->
+  <div id="modal-linked" class="modal-freelancer">
+    <div class="modal-dialog">
+      <span class="modal-close" onclick="closeModal('modal-linked')">&times;</span>
+
+      <h2 class="modal-title">Linked</h2>
+
+      <div class="divider-custom">
+        <div class="divider-line"></div>
+        <div class="divider-icon">★</div>
+        <div class="divider-line"></div>
+      </div>
+
+      <img src="img/Imagen_Computadora.jpeg" class="modal-img">
+
+      <p class="modal-description">
+        Portal web enfocado en la búsqueda de empleo.<br>
+        Construido con <b>HTML, CSS y JavaScript</b>.
+      </p>
+
+      <button class="modal-btn" onclick="closeModal('modal-linked')">✖ Close Window</button>
+    </div>
+  </div>
+
+  <!-- MODAL HOTEL -->
+  <div id="modal-hotel" class="modal-freelancer">
+    <div class="modal-dialog">
+      <span class="modal-close" onclick="closeModal('modal-hotel')">&times;</span>
+
+      <h2 class="modal-title">Hotel Management</h2>
+
+      <div class="divider-custom">
+        <div class="divider-line"></div>
+        <div class="divider-icon">★</div>
+        <div class="divider-line"></div>
+      </div>
+
+      <img src="img/legacyhotel.webp" class="modal-img">
+
+      <p class="modal-description">
+        Aplicación local para gestión hotelera.<br>
+        Tecnologías utilizadas: <b>Java + JavaFX</b>.
+      </p>
+
+      <button class="modal-btn" onclick="closeModal('modal-hotel')">✖ Close Window</button>
+    </div>
+  </div>
+
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-container">
@@ -124,5 +197,6 @@
 
   <!-- JS -->
   <script src="js/main.js"></script>
+
 </body>
 </html>
