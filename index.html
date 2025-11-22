@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,7 +8,7 @@
   <!-- favicon -->
   <link rel="icon" type="image/png" href="img/IMAGOTIPO2.svg" />
 
-  <!-- Open Graph / Share Thumbnail -->
+  <!-- Open Graph -->
   <meta property="og:title" content="J-Computer Engineering" />
   <meta property="og:description" content="Portafolio de Joseph Murillo — Senior Software & Full-Stack Developer." />
   <meta property="og:image" content="https://jfmurillo.github.io/RepositorioPRO/img/IMAGOTIPO2.svg" />
@@ -24,11 +24,12 @@
 
   <!-- HEADER -->
   <header class="site-header">
-    <h1>J-Computer Engineering</h1>
+    <h1 id="header-title">J-Computer Engineering</h1>
+
     <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a id="nav-about" href="#about">About</a>
+      <a id="nav-projects" href="#projects">Projects</a>
+      <a id="nav-contact" href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -37,19 +38,33 @@
     <!-- ABOUT -->
     <section id="about" class="card section">
       <img src="img/IMAGOTIPO2.svg" alt="Profile" class="avatar"/>
+
       <div>
-        <h2>Perfil</h2>
+        <h2 id="about-title">Perfil</h2>
+
         <p>
           Ingeniero en desarrollo de software especializado en análisis de datos
-          y programación de aplicaciones web. Enfocado en crear soluciones digitales eficientes
-          que optimicen rendimiento y escalabilidad.
+          y programación de aplicaciones web. Enfocado en crear soluciones digitales 
+          eficientes que optimicen rendimiento y escalabilidad.
         </p>
+
+        <!-- CV BUTTON + LOTTIE -->
+        <a href="files/JosephMurilloCV.pdf" download class="btn-cv">
+          <dotlottie-wc 
+            src="https://lottie.host/3f29e15f-524d-4e99-bed0-8b1fa461ad27/Y4dyYTplmn.json"
+            class="cv-lottie"
+            autoplay
+            loop>
+          </dotlottie-wc>
+          Descargar CV
+        </a>
+
       </div>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects" class="section">
-      <h2>Projects</h2>
+      <h2>Proyectos</h2>
 
       <div class="grid">
 
@@ -71,7 +86,7 @@
           </div>
         </article>
 
-        <!-- HOTEL MANAGEMENT -->
+        <!-- HOTEL MGMT -->
         <article class="project" onclick="openModal('modal-hotel')">
           <img src="img/legacyhotel.webp" class="thumb"/>
           <div class="overlay">
@@ -85,19 +100,22 @@
 
     <!-- CONTACT -->
     <section id="contact" class="section">
-      <h2>Contact</h2>
+      <h2>Contacto</h2>
 
       <form id="contact-form" class="contact-form">
         <div class="form-group">
-          <input type="text" id="name" placeholder="Your Name" required>
+          <input type="text" id="name" placeholder="Nombre" required>
         </div>
+
         <div class="form-group">
-          <input type="email" id="email" placeholder="Your Email" required>
+          <input type="email" id="email" placeholder="Email" required>
         </div>
+
         <div class="form-group">
-          <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+          <textarea id="message" placeholder="Mensaje" rows="5" required></textarea>
         </div>
-        <button type="submit" class="btn-contact">Send Message</button>
+
+        <button type="submit" class="btn-contact">Enviar</button>
       </form>
 
       <p id="form-status"></p>
@@ -105,9 +123,8 @@
 
   </main>
 
-
-  <!-- ============================
-       MODALS — FREELANCER STYLE
+  <!-- ===========================
+       MODALES
   ============================ -->
 
   <!-- MODAL SIMECID -->
@@ -150,7 +167,7 @@
       <img src="img/Imagen_Computadora.jpeg" class="modal-img">
 
       <p class="modal-description">
-        Portal web enfocado en la búsqueda de empleo.<br>
+        Portal web para búsqueda de empleo.<br>
         Construido con <b>HTML, CSS y JavaScript</b>.
       </p>
 
@@ -182,6 +199,18 @@
     </div>
   </div>
 
+  <!-- WHATSAPP BUTTON -->
+  <a href="https://wa.me/50687236241?text=Hola%20Joseph,%20vi%20tu%20portafolio%20y%20quiero%20contactarte!"
+     target="_blank"
+     class="whatsapp-btn">
+
+    <dotlottie-wc 
+      src="https://lottie.host/85c05d51-9eaa-435e-a4e9-ec0627802e5c/eV7v5mVIJT.json"
+      class="whatsapp-lottie"
+      autoplay
+      loop>
+    </dotlottie-wc>
+  </a>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -193,10 +222,28 @@
         <a href="mailto:josephmurillo1621@gmail.com">Email</a>
       </p>
     </div>
+
+    
+      <!-- Google Translate Selector -->
+    <div id="google_translate_element" class="google-translate-box"></div>
   </footer>
 
-  <!-- JS -->
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'es',
+      includedLanguages: 'es,en',
+      autoDisplay: false,
+      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+    }, 'google_translate_element');
+  }
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
   <script src="js/main.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js" type="module"></script>
 
 </body>
 </html>

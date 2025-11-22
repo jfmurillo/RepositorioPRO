@@ -16,10 +16,17 @@
 /* =========================================
    RESET & GLOBAL
 ========================================= */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background-image: url("../img/fondo-clean.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   color: var(--font);
   scroll-behavior: smooth;
 }
@@ -32,6 +39,7 @@ h2 {
   text-align: center;
   margin-bottom: 40px;
   font-size: 2rem;
+  text-shadow: 0 0 10px rgba(0, 19, 130, 0.7);
 }
 
 /* =========================================
@@ -40,13 +48,14 @@ h2 {
 .site-header {
   position: sticky;
   top: 0;
-  background: var(--main-dark-3);
+  background: rgba(3, 18, 63, 0.95);
   padding: 1rem 2rem;
   border-bottom: 2px solid var(--main-mid);
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  backdrop-filter: blur(8px);
 }
 
 .site-header h1 {
@@ -66,18 +75,55 @@ nav a:hover {
   color: var(--second);
 }
 
+/* Google Translate Footer Styling */
+.google-translate-box {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.site-footer .goog-te-gadget-simple {
+  background: var(--second) !important;
+  border-radius: 8px !important;
+  padding: 6px 12px !important;
+  border: none !important;
+  cursor: pointer;
+}
+
+.site-footer .goog-te-gadget-simple span {
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.9rem !important;
+}
+
+.goog-te-gadget-icon {
+  display: none !important;
+}
+
+/* Remove Google top banner */
+.goog-te-banner-frame.skiptranslate { 
+  display: none !important;
+}
+body { 
+  top: 0px !important;
+}
+
+
+
+
 /* =========================================
    ABOUT CARD
 ========================================= */
 .card {
-  background: var(--main-dark-3);
+  background: rgba(3, 18, 63, 0.95);
   max-width: 900px;
   margin: auto;
   padding: 2rem;
   border-radius: 15px;
   display: flex;
   gap: 2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
 }
 
 .avatar {
@@ -90,7 +136,6 @@ nav a:hover {
 /* =========================================
    PORTFOLIO CARDS + OVERLAY
 ========================================= */
-
 .grid {
   max-width: 1100px;
   margin: auto;
@@ -104,19 +149,36 @@ nav a:hover {
   overflow: hidden;
   border-radius: 12px;
   background: var(--main-dark-2);
-  transition: .3s ease;
+  transition: transform .3s ease, box-shadow .3s ease;
   cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
 .project img {
   width: 100%;
   display: block;
-  transition: .4s ease;
+  transition: transform .4s ease;
 }
 
 .project:hover img {
   transform: scale(1.12);
 }
+
+.project:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+.project {
+  transform: translateY(0);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.project:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
 
 .overlay {
   position: absolute;
@@ -139,7 +201,6 @@ nav a:hover {
 /* =========================================
    MODAL FREELANCER STYLE (FINAL)
 ========================================= */
-
 .modal-freelancer {
   display: none;
   position: fixed;
@@ -213,7 +274,7 @@ nav a:hover {
 }
 
 .modal-description {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: #333;
   line-height: 1.6;
   margin-bottom: 30px;
@@ -240,6 +301,81 @@ nav a:hover {
 @keyframes modalPop {
   from { opacity: 0; transform: scale(.88); }
   to   { opacity: 1; transform: scale(1); }
+}
+
+/* BOTÓN DESCARGAR CV */
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 0.8rem 1.4rem;
+  background: var(--second);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  font-size: 1rem;
+}
+
+.btn-cv:hover {
+  background: #2e72ab;
+  transform: translateY(-2px);
+}
+
+.cv-lottie {
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+}
+
+/* =============================
+   BOTÓN FLOTANTE WHATSAPP
+============================= */
+
+.whatsapp-btn {
+  position: fixed;
+  bottom: 25px;
+  /* right: 25px; */
+  width: 70px;
+  height: 70px;
+  z-index: 3500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: transform .3s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.12);
+}
+
+.whatsapp-lottie {
+  width: 70px;
+  height: 70px;
+  pointer-events: none;
+}
+
+
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
 }
 
 /* =========================================
@@ -299,4 +435,67 @@ input:focus, textarea:focus {
   color: var(--second);
   font-weight: bold;
   text-decoration: none;
+}
+
+/* =========================================
+   BOTÓN SCROLL TO TOP
+========================================= */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: var(--second);
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s ease, transform .2s ease;
+  z-index: 3500;
+}
+
+#scrollTopBtn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#scrollTopBtn:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .section {
+    padding: 60px 1rem;
+  }
+
+  .modal-dialog {
+    padding: 25px 18px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
 }
