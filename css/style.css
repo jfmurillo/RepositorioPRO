@@ -50,7 +50,7 @@ h2 {
   top: 0;
   background: rgba(3, 18, 63, 0.95);
   padding: 1rem 2rem;
-  border-bottom: 2px solid var(--main-mid);
+  border-bottom: 5px solid var(--main-mid);
   z-index: 1000;
   display: flex;
   justify-content: space-between;
@@ -60,12 +60,13 @@ h2 {
 
 .site-header h1 {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 2.1rem;
 }
 
 nav a {
   color: var(--font);
   margin-left: 15px;
+  font-size: 22px;
   font-weight: 600;
   text-decoration: none;
   transition: .3s ease;
@@ -197,6 +198,207 @@ body {
 .project:hover .overlay {
   opacity: 1;
 }
+
+/* ============================
+      HERO SECTION — NUEVO
+============================ */
+
+.hero-section {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 5%;
+  background: linear-gradient(135deg, #020120, #03123F);
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.hero-left {
+  color: #fff;
+  max-width: 580px;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #cdd9ff;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: var(--second);
+  border-radius: 10px;
+  font-weight: bold;
+  color: #000;
+  transition: 0.3s;
+  border: none;
+}
+
+.hero-btn:hover {
+  background: #2e72ab;
+  transform: translateY(-3px);
+}
+
+.cv-lottie {
+  width: 45px;
+  height: 45px;
+}
+
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-lottie {
+  width: 420px;
+  height: 420px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-right {
+    margin-top: 20px;
+  }
+  .hero-lottie {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+
+/* ============================
+   SECCIÓN 2 — HABILIDADES
+============================ */
+
+.skills-section {
+  background: #03123F;
+  padding: 100px 20px;
+  color: var(--font);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.skills-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Divider estilo Freelancer */
+.divider-custom {
+  margin: 20px auto 40px auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider-line {
+  width: 40%;
+  height: 3px;
+  background: var(--second);
+  border-radius: 10px;
+}
+
+.divider-icon {
+  margin: 0 15px;
+  color: var(--second);
+  font-size: 1.4rem;
+}
+
+/* Caja de habilidades */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.skill-box {
+  background: rgba(0,0,0,0.25);
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--main-mid);
+  transition: .3s ease;
+}
+
+.skill-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+  border-color: var(--second);
+}
+
+.skill-box h3 {
+  margin-bottom: 10px;
+  color: var(--second);
+}
+
+/* LOTIFILE ANIM */
+
+
+/* ============================
+   SECCIÓN 3 — PROYECTOS
+============================ */
+
+.projects-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #133068, #020120);
+  color: var(--font);
+}
+
+/* ============================
+   SECCIÓN 4 — CONTACTO
+============================ */
+
+.contact-section {
+  padding: 100px 20px;
+  background: #03052B;
+  color: var(--font);
+}
+
+.contact-section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  max-width: 450px;
+  margin: auto;
+}
+
+
+
 
 /* =========================================
    MODAL FREELANCER STYLE (FINAL)
@@ -420,6 +622,10 @@ input:focus, textarea:focus {
 .btn-contact:hover {
   background: #2e72ab;
 }
+
+#message {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 
 /* =========================================
    FOOTER

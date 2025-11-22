@@ -33,95 +33,180 @@
     </nav>
   </header>
 
-  <main>
+<main>
 
-    <!-- ABOUT -->
-    <section id="about" class="card section">
-      <img src="img/IMAGOTIPO2.svg" alt="Profile" class="avatar"/>
+<!-- =========================
+     SECCIÓN 1 — HERO NUEVO
+========================= -->
+<section id="hero" class="hero-section">
+  <div class="hero-container">
 
-      <div>
-        <h2 id="about-title">Perfil</h2>
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="hero-left">
 
-        <p>
-          Ingeniero en desarrollo de software especializado en análisis de datos
-          y programación de aplicaciones web. Enfocado en crear soluciones digitales 
-          eficientes que optimicen rendimiento y escalabilidad.
-        </p>
+      <h1 class="hero-title">
+        J-Computer Engineering
+      </h1>
 
-        <!-- CV BUTTON + LOTTIE -->
-        <a href="files/JosephMurilloCV.pdf" download class="btn-cv">
-          <dotlottie-wc 
-            src="https://lottie.host/3f29e15f-524d-4e99-bed0-8b1fa461ad27/Y4dyYTplmn.json"
-            class="cv-lottie"
-            autoplay
-            loop>
-          </dotlottie-wc>
-          Descargar CV
-        </a>
+      <p class="hero-subtitle">
+        Ingeniero en Desarrollo de Software · Analista de Datos
+        Ingeniero en el Desarrollo de software enfocado en el análisis de datos y programacion de aplicaciones web, creando soluciones digitales que mejoren el rendimiento del software. Especializado en el uso de herramientas como SQL, Python, React, Javascript y NodeJS. 
+      </p>
+
+      <!-- Botón CV -->
+      <a href="files/JosephMurilloCV.pdf" download class="btn-cv hero-btn">
+        <dotlottie-wc 
+          src="https://lottie.host/3f29e15f-524d-4e99-bed0-8b1fa461ad27/Y4dyYTplmn.json"
+          class="cv-lottie"
+          autoplay loop>
+        </dotlottie-wc>
+        Descargar CV
+      </a>
+
+    </div>
+
+    <!-- COLUMNA DERECHA - ANIMACIÓN -->
+    <div class="hero-right">
+      <dotlottie-wc 
+        src="https://lottie.host/8527acb3-6b21-4883-832a-c0d496be759c/FEwn0q3qS5.json"
+        class="hero-lottie"
+        autoplay loop>
+      </dotlottie-wc>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+  <!-- =========================
+        SECCIÓN 2 — HABILIDADES
+     ========================= -->
+  <section id="skills" class="section skills-section">
+    <div class="container skills-container">
+
+      <h2 class="section-title">Habilidades</h2>
+
+      <div class="divider-custom">
+        <div class="divider-line"></div>
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="skills-layout">
+
+      <!-- LOTTIE ANIMATION -->
+      <!-- <div class="skills-lottie">
+        <dotlottie-wc 
+          src="https://lottie.host/4e9b2ba5-5457-4924-8195-68c90b9ece65/kJHAPFCe1d.json"
+          autoplay
+          loop
+          class="skills-lottie-file">
+        </dotlottie-wc>
+      </div> -->
+
+
+      <div class="skills-grid">
+
+        <div class="skill-box">
+          <h3>Desarrollo Front-End</h3>
+          <p>HTML5, CSS3, JavaScript, React, Bootstrap</p>
+        </div>
+
+        <div class="skill-box">
+          <h3>Desarrollo Back-End</h3>
+          <p>PHP, MySQL, Node.js, Angular</p>
+        </div>
+
+        <div class="skill-box">
+          <h3>Integración de APIs</h3>
+          <p>Consumo e integración de APIs REST</p>
+        </div>
 
       </div>
-    </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <h2>Proyectos</h2>
+    </div>
+  </section>
 
-      <div class="grid">
 
-        <!-- SIMECID -->
-        <article class="project" onclick="openModal('modal-simecid')">
-          <img src="img/estetoscopio.png" class="thumb"/>
-          <div class="overlay">
-            <h3>SIMECID</h3>
-            <p>Plataforma de Citas Médicas</p>
-          </div>
-        </article>
 
-        <!-- LINKED -->
-        <article class="project" onclick="openModal('modal-linked')">
-          <img src="img/Imagen_Computadora.jpeg" class="thumb"/>
-          <div class="overlay">
-            <h3>Linked</h3>
-            <p>Portal de Empleo</p>
-          </div>
-        </article>
+  <!-- =========================
+        SECCIÓN 3 — PROYECTOS
+     ========================= -->
+  <section id="projects" class="section projects-section">
+    <h2 class="section-title">Proyectos</h2>
 
-        <!-- HOTEL MGMT -->
-        <article class="project" onclick="openModal('modal-hotel')">
-          <img src="img/legacyhotel.webp" class="thumb"/>
-          <div class="overlay">
-            <h3>Hotel Management</h3>
-            <p>Java + JavaFX</p>
-          </div>
-        </article>
-
+     <div class="divider-custom">
+        <div class="divider-line"></div>
+        <div class="divider-line"></div>
       </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <h2>Contacto</h2>
+    <div class="grid">
 
-      <form id="contact-form" class="contact-form">
-        <div class="form-group">
-          <input type="text" id="name" placeholder="Nombre" required>
+      <!-- SIMECID -->
+      <article class="project" onclick="openModal('modal-simecid')">
+        <img src="img/estetoscopio.png" class="thumb"/>
+        <div class="overlay">
+          <h3>SIMECID</h3>
+          <p>Plataforma de Citas Médicas</p>
         </div>
+      </article>
 
-        <div class="form-group">
-          <input type="email" id="email" placeholder="Email" required>
+      <!-- LINKED -->
+      <article class="project" onclick="openModal('modal-linked')">
+        <img src="img/Imagen_Computadora.jpeg" class="thumb"/>
+        <div class="overlay">
+          <h3>Linked</h3>
+          <p>Portal de Empleo</p>
         </div>
+      </article>
 
-        <div class="form-group">
-          <textarea id="message" placeholder="Mensaje" rows="5" required></textarea>
+      <!-- HOTEL MGMT -->
+      <article class="project" onclick="openModal('modal-hotel')">
+        <img src="img/legacyhotel.webp" class="thumb"/>
+        <div class="overlay">
+          <h3>Hotel Management</h3>
+          <p>Java + JavaFX</p>
         </div>
+      </article>
 
-        <button type="submit" class="btn-contact">Enviar</button>
-      </form>
+    </div>
+  </section>
 
-      <p id="form-status"></p>
-    </section>
 
-  </main>
+
+  <!-- =========================
+        SECCIÓN 4 — CONTACTO
+     ========================= -->
+  <section id="contact" class="section contact-section">
+    <h2 class="section-title">Contacto</h2>
+
+     <div class="divider-custom">
+        <div class="divider-line"></div>
+        <div class="divider-line"></div>
+      </div>
+
+    <form id="contact-form" class="contact-form">
+      <div class="form-group">
+        <input type="text" id="name" placeholder="Nombre" required>
+      </div>
+
+      <div class="form-group">
+        <input type="email" id="email" placeholder="Email" required>
+      </div>
+
+      <div class="form-group">
+        <textarea id="message" placeholder="Mensaje" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-contact">Enviar</button>
+    </form>
+
+    <p id="form-status"></p>
+  </section>
+
+</main>
+
 
   <!-- ===========================
        MODALES
