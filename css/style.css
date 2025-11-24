@@ -663,6 +663,26 @@ input:focus, textarea:focus {
   text-decoration: none;
 }
 
+.social-links a {
+  color: var(--second);
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+}
+
+.social-links a:hover {
+  color: #fff;
+}
+
+.social-links i {
+  width: 20px;
+  height: 20px;
+}
+
 /* =========================================
    BOTÓN SCROLL TO TOP
 ========================================= */
