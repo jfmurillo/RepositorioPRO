@@ -86,7 +86,7 @@ h2 {
 nav a {
   color: var(--font);
   margin-left: 15px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
   text-decoration: none;
   transition: .3s ease;
