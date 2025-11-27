@@ -418,6 +418,14 @@ body {
 }
 
 
+.section-description {
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  font-size: 1.1rem;
+  color: #dce3f5;
+  text-align: center;
+  line-height: 1.6;
+}
 
 
 /* =========================================
@@ -478,7 +486,7 @@ body {
 .divider-line {
   width: 80px;
   height: 3px;
-  background: #000;
+  background: var(--second);
   border-radius: 2px;
 }
 
