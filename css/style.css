@@ -427,6 +427,11 @@ body {
   line-height: 1.6;
 }
 
+.navbar-logo {
+  width: 55px;
+  height: auto;
+}
+
 
 /* =========================================
    MODAL FREELANCER STYLE (FINAL)
