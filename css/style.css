@@ -1,6 +1,4 @@
-/* =========================================
-   PALETA PERSONALIZADA
-========================================= */
+/* PALETA DE COLORES */
 :root {
   --main: #001382;
   --main-dark-1: #020120;
@@ -13,9 +11,6 @@
   --font: #ffffff;
 }
 
-/* =========================================
-   RESET & GLOBAL
-========================================= */
 * {
   box-sizing: border-box;
 }
@@ -42,9 +37,7 @@ h2 {
   text-shadow: 0 0 10px rgba(0, 19, 130, 0.7);
 }
 
-/* =========================================
-   HEADER
-========================================= */
+/* ========================================= HEADER ========================================= */
 .site-header {
   position: sticky;
   top: 0;
@@ -96,7 +89,7 @@ nav a:hover {
   color: var(--second);
 }
 
-/* Google Translate Footer Styling */
+/* Google Translate Footer */
 .google-translate-box {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -129,12 +122,7 @@ body {
   top: 0px !important;
 }
 
-
-
-
-/* =========================================
-   ABOUT CARD
-========================================= */
+/* =========================================  ABOUT CARD ========================================= */
 .card {
   background: rgba(3, 18, 63, 0.95);
   max-width: 900px;
@@ -154,9 +142,7 @@ body {
   border: 3px solid var(--second);
 }
 
-/* =========================================
-   PORTFOLIO CARDS + OVERLAY
-========================================= */
+/* =========================================  PORTFOLIO CARDS  ========================================= */
 .grid {
   max-width: 1100px;
   margin: auto;
@@ -219,9 +205,7 @@ body {
   opacity: 1;
 }
 
-/* ============================
-      HERO SECTION — NUEVO
-============================ */
+/* ============================  ============================ */
 
 .hero-section {
   min-height: 90vh;
@@ -312,10 +296,7 @@ body {
 }
 
 
-/* ============================
-   SECCIÓN 2 — HABILIDADES
-============================ */
-
+/* ============================ SECCIÓN 2 — HABILIDADES ============================ */
 .skills-section {
   background: #03123F;
   padding: 100px 20px;
@@ -381,24 +362,14 @@ body {
   margin-bottom: 10px;
   color: var(--second);
 }
-
-/* LOTIFILE ANIM */
-
-
-/* ============================
-   SECCIÓN 3 — PROYECTOS
-============================ */
-
+/* ============================ SECCIÓN 3 — PROYECTOS ============================ */
 .projects-section {
   padding: 100px 20px;
   background: linear-gradient(135deg, #133068, #020120);
   color: var(--font);
 }
 
-/* ============================
-   SECCIÓN 4 — CONTACTO
-============================ */
-
+/* ============================ SECCIÓN 4 — CONTACTO ============================ */
 .contact-section {
   padding: 100px 20px;
   background: #03052B;
@@ -433,10 +404,7 @@ body {
 }
 
 
-/* ============================================
-   SECCIÓN 5 — CERTIFICACIONES
-============================================ */
-
+/* ============================================ SECCIÓN 5 — CERTIFICACIONES  ============================================ */
 .certifications-section {
   padding: 90px 0;
   background: linear-gradient(135deg, var(--main-dark-3), var(--main-dark-1));
@@ -458,10 +426,7 @@ body {
 }
 
 
-/* ============================
-   GRID DE CERTIFICACIONES
-============================ */
-
+/* ============================ GRID  CERTIFICACIONES============================= */
 .certs-grid {
   max-width: 1100px;
   margin: 0 auto;
@@ -472,10 +437,7 @@ body {
 }
 
 
-/* ============================
-   CAJA INDIVIDUAL DEL CERTIFICADO
-============================ */
-
+/* ============================  CERTIFICADO ============================ */
 .cert-box {
   background: var(--main-dark-2);
   border: 2px solid var(--main-mid);
@@ -521,9 +483,7 @@ body {
 
 
 
-/* =========================================
-   MODAL FREELANCER STYLE (FINAL)
-========================================= */
+/* =========================================  MODAL ========================================= */
 .modal-freelancer {
   display: none;
   position: fixed;
@@ -654,10 +614,7 @@ body {
   pointer-events: none;
 }
 
-/* =============================
-   BOTÓN FLOTANTE WHATSAPP
-============================= */
-
+/* =============================  BOTÓN WHATSAPP ============================= */
 .whatsapp-btn {
   position: fixed;
   bottom: 25px;
@@ -684,12 +641,7 @@ body {
   pointer-events: none;
 }
 
-
-
-
-/* =========================================
-   SCROLL REVEAL
-========================================= */
+/* =========================================SCROLL  ========================================= */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -701,9 +653,7 @@ body {
   transform: none;
 }
 
-/* =========================================
-   CONTACT FORM
-========================================= */
+/* ========================================= CONTACT FORM ========================================= */
 .contact-form {
   max-width: 450px;
   margin: auto;
@@ -748,9 +698,7 @@ input:focus, textarea:focus {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
-/* =========================================
-   FOOTER
-========================================= */
+/* ========================================= FOOTER ========================================= */
 .site-footer {
   background: var(--main-dark-1);
   text-align: center;
@@ -784,9 +732,7 @@ input:focus, textarea:focus {
   height: 20px;
 }
 
-/* =========================================
-   BOTÓN SCROLL TO TOP
-========================================= */
+/* ========================================= SCROLL TO TOP ========================================= */
 #scrollTopBtn {
   position: fixed;
   bottom: 25px;
@@ -818,9 +764,7 @@ input:focus, textarea:focus {
   transform: translateY(-2px);
 }
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+/* =========================================RESPONSIVE ========================================= */
 @media (max-width: 768px) {
   .site-header {
     flex-direction: column;
