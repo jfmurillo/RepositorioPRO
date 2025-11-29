@@ -125,3 +125,29 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 
 document.querySelectorAll(".scroll-fade").forEach(el => observer.observe(el));
+
+////////////
+/* ================================
+   NAVBAR SCROLL ANIMATION MODERNA
+================================ */
+document.querySelectorAll("nav a[href^='#']").forEach(link => {
+  link.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const target = document.querySelector(this.getAttribute("href"));
+    if (!target) return;
+
+    // Animación de scroll suave
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+    // Destello suave en la sección al llegar
+    target.classList.add("section-highlight");
+
+    setTimeout(() => {
+      target.classList.remove("section-highlight");
+    }, 1200);
+  });
+});
