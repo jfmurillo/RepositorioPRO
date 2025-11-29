@@ -1,12 +1,7 @@
-/* =======================================
-    YEAR IN FOOTER
-======================================= */
 const yearSpan = document.getElementById("year");
 if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-/* =======================================
-    CONTACT FORM
-======================================= */
+/* =======================================CONTACT FORM ======================================= */
 const contactForm = document.getElementById("contact-form");
 if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
@@ -20,11 +15,8 @@ if (contactForm) {
   });
 }
 
-/* =======================================
-    MODAL SYSTEM (Freelancer style)
-======================================= */
-
-// Open modal
+/* ======================================= MODAL ======================================= */
+// Open
 function openModal(id) {
   const modal = document.getElementById(id);
   if (!modal) return;
@@ -60,9 +52,7 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-/* =======================================
-    SCROLL REVEAL WITHOUT LIBRARIES
-======================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
   const revealElements = document.querySelectorAll(
     ".card, .project, .contact-form, .site-footer"
@@ -85,9 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
   revealElements.forEach((el) => observer.observe(el));
 });
 
-/* =======================================
-    SCROLL TO TOP BUTTON
-======================================= */
+/* =======================================SCROLL TO TOP BUTTON ======================================= */
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.createElement("button");
   btn.id = "scrollTopBtn";
@@ -104,9 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/* =======================================
-   GTRANSLATE PRO — CONTROLAR LENGUAJE
-======================================= */
+/* =======================================  GTRANSLATE======================================= */
 document.addEventListener("DOMContentLoaded", () => {
   const flags = document.querySelectorAll(".lang-flag");
 
@@ -127,3 +113,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+/* ======================================= scroll ======================================= */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".scroll-fade").forEach(el => observer.observe(el));
