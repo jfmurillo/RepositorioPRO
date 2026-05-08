@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>J-Computer Engineering</title>
-  <!-- favicon -->
   <link rel="icon" type="image/png" href="img/IMAGOTIPO2.svg" />
   <meta property="og:title" content="J-Computer Engineering" />
   <meta property="og:description" content="Portafolio de Joseph Murillo — Software Developer & Data Analyst." />
@@ -13,200 +12,247 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="css/style.css" />
+  <!-- Anti-flash: apply saved theme before first paint -->
+  <script>(function(){var t=localStorage.getItem('portfolio-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
 
 <body>
+
   <!-- HEADER -->
-<header class="site-header">
-  <img src="img/IMAGOTIPO2.svg" class="navbar-logo" alt="logo">
+  <header class="site-header">
+    <img src="img/IMAGOTIPO2.svg" class="navbar-logo" alt="logo">
+    <nav>
+      <a href="#hero">Inicio</a>
+      <a href="#skills">Habilidades</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#certifications">Certificaciones</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+      <i data-lucide="sun"></i>
+    </button>
+  </header>
 
-  <nav>
-    <a id="nav-home" href="#hero">Inicio</a>
-    <a id="nav-about" href="#skills">Habilidades</a>
-    <a id="nav-projects" href="#projects">Proyectos</a>
-    <a id="nav-certifications" href="#certifications">Certificaciones</a>
-    <a id="nav-contact" href="#contact">Contacto</a>
-  </nav>
-</header>
+  <main>
 
-<main>
+    <!-- HERO -->
+    <section id="hero" class="hero-section parallax">
+      <div class="hero-container">
 
-     <!-- SECCION 1 -->
-<section id="hero" class="hero-section parallax">
-  <div class="hero-container">
-    <!-- COLUMNA IZQUIERDA -->
-    <div class="hero-left">
-      <h1 class="hero-title">
-        J-Computer Engineering
-      </h1>
-      <p class="hero-subtitle">
-        Ingeniero en Desarrollo de Software · Analista de Datos
-        Ingeniero en el Desarrollo de software enfocado en el análisis de datos y programacion de aplicaciones web, creando soluciones digitales que mejoren el rendimiento del software. Especializado en el uso de herramientas como SQL, Python, React, Javascript y NodeJS. 
-      </p>
-      <!-- Btn CV -->
-      <a href="/RepositorioPRO/files/JosephMurillo_CV2025.pdf" download class="btn-cv hero-btn">
-        <dotlottie-wc 
-          src="https://lottie.host/3f29e15f-524d-4e99-bed0-8b1fa461ad27/Y4dyYTplmn.json"
-          class="cv-lottie"
-          autoplay loop>
-        </dotlottie-wc>
-        Descargar CV
-      </a>
-    </div>
+        <div class="hero-left">
+          <h1 class="hero-title">J-Computer Engineering</h1>
+          <div class="hero-badges">
+            <span class="hero-badge">#Software Developer</span>
+            <span class="hero-badge">#Data Analyst</span>
+            <span class="hero-badge">#Web Developer</span>
+          </div>
+          <p class="hero-tagline">Soluciones digitales que impactan.</p>
+          <p class="hero-description">
+            Ingeniero en Desarrollo de Software especializado en análisis de datos y
+            aplicaciones web. Trabajo con SQL, Python, React, JavaScript y Node.js para
+            entregar productos que importan.
+          </p>
+          <a href="/RepositorioPRO/files/JosephMurillo_CV2025.pdf" download class="btn-cv hero-btn">
+            <dotlottie-wc
+              src="https://lottie.host/3f29e15f-524d-4e99-bed0-8b1fa461ad27/Y4dyYTplmn.json"
+              class="cv-lottie" autoplay loop>
+            </dotlottie-wc>
+            Descargar CV
+          </a>
+        </div>
 
-    <!-- COLUMNA DERECHA - ANIMACIÓN -->
-    <div class="hero-right">
-      <dotlottie-wc 
-        src="https://lottie.host/8527acb3-6b21-4883-832a-c0d496be759c/FEwn0q3qS5.json"
-        class="hero-lottie"
-        autoplay loop>
-      </dotlottie-wc>
-    </div>
-  </div>
-</section>
+        <div class="hero-right">
+          <dotlottie-wc
+            src="https://lottie.host/8527acb3-6b21-4883-832a-c0d496be759c/FEwn0q3qS5.json"
+            class="hero-lottie" autoplay loop>
+          </dotlottie-wc>
+        </div>
 
-     <!-- SECCION 2 -->
-  <section id="skills" class="section skills-section">
-    <div class="container skills-container">
-      <h2 class="section-title">Habilidades</h2>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="skills" class="section skills-section">
+      <div class="container skills-container">
+        <h2 class="section-title">Habilidades</h2>
         <p class="section-description">
-          Un conjunto de habilidades técnicas orientadas al desarrollo moderno, 
+          Un conjunto de habilidades técnicas orientadas al desarrollo moderno,
           desde interfaces intuitivas hasta arquitecturas sólidas en el backend.
         </p>
+        <div class="divider-custom">
+          <div class="divider-line"></div>
+          <div class="divider-line"></div>
+        </div>
+        <div class="skills-grid">
+
+          <div class="skill-box">
+            <i data-lucide="monitor"></i>
+            <h3>Desarrollo Front-End</h3>
+            <p>HTML5, CSS3, JavaScript, TypeScript, React, Bootstrap, Tailwind CSS</p>
+          </div>
+
+          <div class="skill-box">
+            <i data-lucide="server"></i>
+            <h3>Desarrollo Back-End</h3>
+            <p>PHP, MySQL, PostgreSQL, Node.js, Express, Angular, C#</p>
+          </div>
+
+          <div class="skill-box">
+            <i data-lucide="plug"></i>
+            <h3>Integración de APIs</h3>
+            <p>REST APIs, JSON, Fetch API, Axios, Postman, OAuth 2.0</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="projects" class="section projects-section">
+      <h2 class="section-title">Proyectos</h2>
+      <p class="section-description">
+        Algunos de los proyectos más relevantes que he desarrollado,
+        aplicando buenas prácticas, optimización de procesos y experiencia real en producción.
+      </p>
       <div class="divider-custom">
         <div class="divider-line"></div>
         <div class="divider-line"></div>
       </div>
-      <div class="skills-layout">
-      <!-- LOTTIE ANIMATION -->
-      <!-- <div class="skills-lottie">
-        <dotlottie-wc 
-          src="https://lottie.host/4e9b2ba5-5457-4924-8195-68c90b9ece65/kJHAPFCe1d.json"
-          autoplay
-          loop
-          class="skills-lottie-file">
-        </dotlottie-wc>
-      </div> -->
-      <div class="skills-grid">
-        <div class="skill-box">
-          <h3>Desarrollo Front-End</h3>
-          <p>HTML5, CSS3, JavaScript, React, Bootstrap</p>
-        </div>
+      <div class="grid">
 
-        <div class="skill-box">
-          <h3>Desarrollo Back-End</h3>
-          <p>PHP, MySQL, Node.js, Angular</p>
-        </div>
+        <!-- SIMECID -->
+        <article class="project" onclick="openModal('modal-simecid')">
+          <img src="img/estetoscopio.png" class="thumb" alt="SIMECID"/>
+          <div class="overlay">
+            <h3>SIMECID</h3>
+            <p>Plataforma de Citas Médicas</p>
+            <div class="tech-tags">
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+          </div>
+        </article>
 
-        <div class="skill-box">
-          <h3>Integración de APIs</h3>
-          <p>Consumo e integración de APIs REST</p>
-        </div>
+        <!-- LINKED -->
+        <article class="project" onclick="openModal('modal-linked')">
+          <img src="img/Imagen_Computadora.jpeg" class="thumb" alt="Linked"/>
+          <div class="overlay">
+            <h3>Linked</h3>
+            <p>Portal de Empleo</p>
+            <div class="tech-tags">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- HOTEL MGMT -->
+        <article class="project" onclick="openModal('modal-hotel')">
+          <img src="img/legacyhotel.webp" class="thumb" alt="Hotel Management"/>
+          <div class="overlay">
+            <h3>Hotel Management</h3>
+            <p>Java + JavaFX</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">JavaFX</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- FLOWTICA MEDIA -->
+        <article class="project" onclick="openModal('modal-flowtica')">
+          <img src="img/flowtica.png" class="thumb" alt="Flowtica Media"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="flowtica-placeholder" style="display:none">Flowtica Media</div>
+          <div class="overlay">
+            <h3>Flowtica Media</h3>
+            <p>Sitio Web de Servicios</p>
+            <div class="tech-tags">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+          </div>
+        </article>
+
       </div>
-    </div>
-  </section>
+    </section>
 
-     <!-- SECCION 3 -->
-  <section id="projects" class="section projects-section">
-    <h2 class="section-title">Proyectos</h2>
-    <p class="section-description">
-      Algunos de los proyectos más relevantes que he desarrollado, 
-      aplicando buenas prácticas, optimización de procesos y experiencia real en producción.
-    </p>
-     <div class="divider-custom">
+    <!-- CERTIFICACIONES -->
+    <section id="certifications" class="section certifications-section">
+      <h2 class="section-title scroll-fade">Certificaciones</h2>
+      <p class="section-desc scroll-fade">
+        Certificaciones que avalan mis conocimientos técnicos, metodologías y competencias
+        dentro del área del desarrollo de software.
+      </p>
+      <div class="certs-grid scroll-fade">
+
+        <div class="cert-box">
+          <i data-lucide="award"></i>
+          <h3>Scrum Fundamentals Certified</h3>
+          <p>Certiprof — Enero 2024</p>
+        </div>
+
+        <div class="cert-box">
+          <i data-lucide="award"></i>
+          <h3>Técnico en Desarrollo de Software</h3>
+          <p>Universidad CENFOTEC — Julio 2024</p>
+        </div>
+
+        <div class="cert-box">
+          <i data-lucide="award"></i>
+          <h3>AWS Technical Essentials</h3>
+          <p>Amazon Web Services (AWS) — Noviembre 2025</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contact" class="section contact-section">
+      <h2 class="section-title">Contacto</h2>
+      <p class="section-description">
+        ¿Interesado en colaborar o necesitas más información?
+        Puedes escribirme directamente mediante el formulario o por mis redes profesionales.
+      </p>
+      <div class="divider-custom">
         <div class="divider-line"></div>
         <div class="divider-line"></div>
       </div>
-    <div class="grid">
-
-      <!-- SIMECID -->
-      <article class="project" onclick="openModal('modal-simecid')">
-        <img src="img/estetoscopio.png" class="thumb"/>
-        <div class="overlay">
-          <h3>SIMECID</h3>
-          <p>Plataforma de Citas Médicas</p>
+      <form id="contact-form" class="contact-form">
+        <div class="form-group">
+          <input type="text" id="name" placeholder="Nombre" required>
         </div>
-      </article>
-
-      <!-- LINKED -->
-      <article class="project" onclick="openModal('modal-linked')">
-        <img src="img/Imagen_Computadora.jpeg" class="thumb"/>
-        <div class="overlay">
-          <h3>Linked</h3>
-          <p>Portal de Empleo</p>
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Email" required>
         </div>
-      </article>
-
-      <!-- HOTEL MGMT -->
-      <article class="project" onclick="openModal('modal-hotel')">
-        <img src="img/legacyhotel.webp" class="thumb"/>
-        <div class="overlay">
-          <h3>Hotel Management</h3>
-          <p>Java + JavaFX</p>
+        <div class="form-group">
+          <textarea id="message" placeholder="Mensaje" rows="5" required></textarea>
         </div>
-      </article>
-    </div>
-  </section>
-
-       <!-- SECCION 4 -->
-<section id="certifications" class="section certifications-section">
-  <h2 class="section-title scroll-fade">Certificaciones</h2>
-  
-  <p class="section-desc scroll-fade">
-    Certificaciones que avalan mis conocimientos técnicos, metodologías y competencias
-    dentro del área del desarrollo de software.
-  </p>
-
-  <div class="certs-grid scroll-fade">
-
-    <div class="cert-box">
-      <h3>Scrum Fundamentals Certified</h3>
-      <p>Certiprof — Enero 2024</p>
-    </div>
-
-    <div class="cert-box">
-      <h3>Técnico en Desarrollo de Software</h3>
-      <p>Universidad CENFOTEC — Julio 2024</p>
-    </div>
-
-    <div class="cert-box">
-      <h3>AWS Technical Essentials</h3>
-      <p>Amazon Web Services (AWS) — Noviembre 2025</p>
-    </div>
-
-  </div>
-</section>
-
-     <!-- SECCION 5 -->
-  <section id="contact" class="section contact-section">
-    <h2 class="section-title">Contacto</h2>
-    <p class="section-description">
-    ¿Interesado en colaborar o necesitas más información?  
-    Puedes escribirme directamente mediante el formulario o por mis redes profesionales.
-  </p>
-     <div class="divider-custom">
-        <div class="divider-line"></div>
-        <div class="divider-line"></div>
+        <button type="submit" class="btn-contact">Enviar</button>
+      </form>
+      <p id="form-status"></p>
+      <div class="contact-social">
+        <a href="https://github.com/jfmurillo" target="_blank" rel="noopener">
+          <i data-lucide="github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/joseph-murillo" target="_blank" rel="noopener">
+          <i data-lucide="linkedin"></i> LinkedIn
+        </a>
+        <a href="mailto:josephmurillo1621@gmail.com">
+          <i data-lucide="mail"></i> Email
+        </a>
       </div>
-    <form id="contact-form" class="contact-form">
-      <div class="form-group">
-        <input type="text" id="name" placeholder="Nombre" required>
-      </div>
-      <div class="form-group">
-        <input type="email" id="email" placeholder="Email" required>
-      </div>
-      <div class="form-group">
-        <textarea id="message" placeholder="Mensaje" rows="5" required></textarea>
-      </div>
-      <button type="submit" class="btn-contact">Enviar</button>
-    </form>
-    <p id="form-status"></p>
-  </section>
-</main>
+    </section>
+
+  </main>
 
 
   <!-- ===========================
-       MOLDALS
+       MODALS
   ============================ -->
 
   <!-- SIMECID -->
@@ -218,12 +264,22 @@
         <div class="divider-line"></div>
         <div class="divider-line"></div>
       </div>
-      <img src="img/estetoscopio.png" class="modal-img">
+      <img src="img/estetoscopio.png" class="modal-img" alt="SIMECID">
       <p class="modal-description">
-        Plataforma web para consulta y reserva de citas médicas.<br>
-        Backend en <b>C#</b> y frontend en <b>HTML, CSS y JavaScript</b>.
+        Plataforma web para consulta y reserva de citas médicas. Permite a pacientes agendar
+        citas y a médicos gestionar su agenda. Backend en <b>C#</b> y frontend en
+        <b>HTML, CSS y JavaScript</b>.
       </p>
-      <button class="modal-btn" onclick="closeModal('modal-simecid')">✖ Close Window</button>
+      <div class="tech-tags" style="justify-content:center; margin-bottom:20px;">
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">HTML5</span>
+        <span class="tech-tag">CSS3</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">REST API</span>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-btn" onclick="closeModal('modal-simecid')">✖ Cerrar</button>
+      </div>
     </div>
   </div>
 
@@ -236,12 +292,19 @@
         <div class="divider-line"></div>
         <div class="divider-line"></div>
       </div>
-      <img src="img/Imagen_Computadora.jpeg" class="modal-img">
+      <img src="img/Imagen_Computadora.jpeg" class="modal-img" alt="Linked">
       <p class="modal-description">
-        Portal web para búsqueda de empleo.<br>
-        Construido con <b>HTML, CSS y JavaScript</b>.
+        Portal web para búsqueda y publicación de empleos. Los usuarios pueden registrarse,
+        crear perfiles y postularse a ofertas. Construido con <b>HTML, CSS y JavaScript</b>.
       </p>
-      <button class="modal-btn" onclick="closeModal('modal-linked')">✖ Close Window</button>
+      <div class="tech-tags" style="justify-content:center; margin-bottom:20px;">
+        <span class="tech-tag">HTML5</span>
+        <span class="tech-tag">CSS3</span>
+        <span class="tech-tag">JavaScript</span>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-btn" onclick="closeModal('modal-linked')">✖ Cerrar</button>
+      </div>
     </div>
   </div>
 
@@ -254,12 +317,50 @@
         <div class="divider-line"></div>
         <div class="divider-line"></div>
       </div>
-      <img src="img/legacyhotel.webp" class="modal-img">
+      <img src="img/legacyhotel.webp" class="modal-img" alt="Hotel Management">
       <p class="modal-description">
-        Aplicación local para gestión hotelera.<br>
-        Tecnologías utilizadas: <b>Java + JavaFX</b>.
+        Aplicación de escritorio para gestión hotelera: reservas, check-in, clientes y
+        reportes. Desarrollada con <b>Java y JavaFX</b> con interfaz gráfica moderna.
       </p>
-      <button class="modal-btn" onclick="closeModal('modal-hotel')">✖ Close Window</button>
+      <div class="tech-tags" style="justify-content:center; margin-bottom:20px;">
+        <span class="tech-tag">Java</span>
+        <span class="tech-tag">JavaFX</span>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-btn" onclick="closeModal('modal-hotel')">✖ Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOWTICA -->
+  <div id="modal-flowtica" class="modal-freelancer">
+    <div class="modal-dialog">
+      <span class="modal-close" onclick="closeModal('modal-flowtica')">&times;</span>
+      <h2 class="modal-title">Flowtica Media</h2>
+      <div class="divider-custom">
+        <div class="divider-line"></div>
+        <div class="divider-line"></div>
+      </div>
+      <img src="img/flowtica.png" class="modal-img" alt="Flowtica Media"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="flowtica-placeholder" style="display:none; border-radius:12px; margin-bottom:20px;">
+        Flowtica Media
+      </div>
+      <p class="modal-description">
+        Sitio web para <b>Flowtica Media</b>, agencia de producción y marketing digital.
+        Incluye presentación de servicios, portafolio de trabajos y formulario de contacto.
+        Diseñado y desarrollado de principio a fin.
+      </p>
+      <div class="tech-tags" style="justify-content:center; margin-bottom:20px;">
+        <span class="tech-tag">HTML5</span>
+        <span class="tech-tag">CSS3</span>
+        <span class="tech-tag">JavaScript</span>
+      </div>
+      <div class="modal-actions">
+        <a href="https://flowticamedia.com" target="_blank" rel="noopener"
+           class="modal-btn">🌐 Ver Sitio en Vivo</a>
+        <button class="modal-btn-secondary" onclick="closeModal('modal-flowtica')">✖ Cerrar</button>
+      </div>
     </div>
   </div>
 
@@ -267,54 +368,57 @@
   <a href="https://wa.me/50687236241?text=Hola%20Joseph,%20vi%20tu%20portafolio%20y%20quiero%20contactarte!"
      target="_blank"
      class="whatsapp-btn">
-    <dotlottie-wc 
+    <dotlottie-wc
       src="https://lottie.host/85c05d51-9eaa-435e-a4e9-ec0627802e5c/eV7v5mVIJT.json"
-      class="whatsapp-lottie"
-      autoplay
-      loop>
+      class="whatsapp-lottie" autoplay loop>
     </dotlottie-wc>
   </a>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-container">
-      <p>© <span id="year"></span> Joseph Murillo</p>
-      <p class="social-links">
-        <a href="https://github.com/jfmurillo" target="_blank">
-          <i data-lucide="github"></i> GitHub
-        </a>
-
-        <a href="https://www.linkedin.com/in/joseph-murillo" target="_blank">
-          <i data-lucide="linkedin"></i> LinkedIn
-        </a>
-
-        <a href="mailto:josephmurillo1621@gmail.com">
-          <i data-lucide="mail"></i> Email
-        </a>
-      </p>
+      <div class="footer-col">
+        <span class="footer-brand">J-Computer Engineering</span>
+        <p class="footer-copy">© <span id="year"></span> Joseph Murillo</p>
+      </div>
+      <div class="footer-col">
+        <span class="footer-brand">Redes</span>
+        <div class="social-links">
+          <a href="https://github.com/jfmurillo" target="_blank" rel="noopener">
+            <i data-lucide="github"></i> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/joseph-murillo" target="_blank" rel="noopener">
+            <i data-lucide="linkedin"></i> LinkedIn
+          </a>
+          <a href="mailto:josephmurillo1621@gmail.com">
+            <i data-lucide="mail"></i> Email
+          </a>
+        </div>
+      </div>
     </div>
-    
-      <!-- Google Translate Selector -->
     <div id="google_translate_element" class="google-translate-box"></div>
   </footer>
 
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'es',
-      includedLanguages: 'es,en',
-      autoDisplay: false,
-      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-    }, 'google_translate_element');
-  }
-</script>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'es,en',
+        autoDisplay: false,
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+      }, 'google_translate_element');
+    }
+  </script>
 
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="js/main.js"></script>
   <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js" type="module"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    lucide.createIcons();
-  </script>
+  <script>lucide.createIcons();</script>
+
+  <div id="page-transition">
+    <div class="loader"></div>
+  </div>
+
 </body>
 </html>

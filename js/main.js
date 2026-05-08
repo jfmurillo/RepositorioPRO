@@ -1,22 +1,61 @@
+/* ======================================= THEME TOGGLE ======================================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+  const KEY = 'portfolio-theme';
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem(KEY, theme);
+    const icon = toggleBtn.querySelector('i');
+    if (icon) {
+      icon.setAttribute('data-lucide', theme === 'dark' ? 'sun' : 'moon');
+      lucide.createIcons();
+    }
+  }
+
+  applyTheme(root.getAttribute('data-theme') || 'dark');
+
+  toggleBtn.addEventListener('click', () => {
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+});
+
+/* ======================================= ACTIVE NAV ON SCROLL ======================================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link =>
+          link.classList.toggle('nav-active', link.getAttribute('href') === `#${entry.target.id}`)
+        );
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(s => sectionObserver.observe(s));
+});
+
+/* ======================================= YEAR ======================================= */
 const yearSpan = document.getElementById("year");
 if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-/* =======================================CONTACT FORM ======================================= */
+/* ======================================= CONTACT FORM ======================================= */
 const contactForm = document.getElementById("contact-form");
 if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
-
     const status = document.getElementById("form-status");
-    status.textContent = "Message sent successfully!";
+    status.textContent = "¡Mensaje enviado correctamente!";
     status.style.color = "#00ff9d";
-
     this.reset();
   });
 }
 
 /* ======================================= MODAL ======================================= */
-// Open
 function openModal(id) {
   const modal = document.getElementById(id);
   if (!modal) return;
@@ -24,7 +63,6 @@ function openModal(id) {
   document.body.style.overflow = "hidden";
 }
 
-// Close modal
 function closeModal(id) {
   const modal = document.getElementById(id);
   if (!modal) return;
@@ -32,7 +70,6 @@ function closeModal(id) {
   document.body.style.overflow = "";
 }
 
-// Close modal on click outside
 window.addEventListener("click", (e) => {
   document.querySelectorAll(".modal-freelancer").forEach((modal) => {
     if (e.target === modal) {
@@ -42,7 +79,6 @@ window.addEventListener("click", (e) => {
   });
 });
 
-// Close modal with ESC key
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     document.querySelectorAll(".modal-freelancer").forEach((modal) => {
@@ -52,15 +88,14 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-
+/* ======================================= REVEAL ON SCROLL ======================================= */
 document.addEventListener("DOMContentLoaded", () => {
   const revealElements = document.querySelectorAll(
     ".card, .project, .contact-form, .site-footer"
   );
-
   revealElements.forEach((el) => el.classList.add("reveal"));
 
-  const observer = new IntersectionObserver(
+  const revealObserver = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -72,10 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.15 }
   );
 
-  revealElements.forEach((el) => observer.observe(el));
+  revealElements.forEach((el) => revealObserver.observe(el));
 });
 
-/* =======================================SCROLL TO TOP BUTTON ======================================= */
+/* ======================================= SCROLL TO TOP ======================================= */
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.createElement("button");
   btn.id = "scrollTopBtn";
@@ -92,62 +127,61 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/* =======================================  GTRANSLATE======================================= */
+/* ======================================= GTRANSLATE ======================================= */
 document.addEventListener("DOMContentLoaded", () => {
   const flags = document.querySelectorAll(".lang-flag");
-
   flags.forEach(flag => {
     flag.addEventListener("click", () => {
       const lang = flag.dataset.lang;
-
-      // Trigger hidden GTranslate select
       const realSelect = document.querySelector(".gtranslate_wrapper select");
       if (realSelect) {
         realSelect.value = lang;
         realSelect.dispatchEvent(new Event("change"));
       }
-
-      // Marcar bandera activa
       flags.forEach(f => f.classList.remove("active"));
       flag.classList.add("active");
     });
   });
 });
 
-/* ======================================= scroll ======================================= */
-const observer = new IntersectionObserver(entries => {
+/* ======================================= SCROLL FADE ======================================= */
+const scrollFadeObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
+      scrollFadeObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.2 });
 
-document.querySelectorAll(".scroll-fade").forEach(el => observer.observe(el));
+document.querySelectorAll(".scroll-fade").forEach(el => scrollFadeObserver.observe(el));
 
-////////////
-/* ================================
-   NAVBAR SCROLL ANIMATION MODERNA
-================================ */
+/* ======================================= SMOOTH NAV + SECTION GLOW ======================================= */
 document.querySelectorAll("nav a[href^='#']").forEach(link => {
   link.addEventListener("click", function(e) {
     e.preventDefault();
-
     const target = document.querySelector(this.getAttribute("href"));
     if (!target) return;
-
-    // Animación de scroll suave
-    target.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-
-    // Destello suave en la sección al llegar
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
     target.classList.add("section-highlight");
+    setTimeout(() => target.classList.remove("section-highlight"), 1200);
+  });
+});
 
-    setTimeout(() => {
-      target.classList.remove("section-highlight");
-    }, 1200);
+/* ======================================= PAGE TRANSITION ======================================= */
+document.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", e => {
+    const url = link.getAttribute("href");
+    if (!url) return;
+    if (url.startsWith("#")) return;
+    if (link.hasAttribute("download")) return;
+    if (link.classList.contains("modal-btn")) return;
+    if (url.includes("wa.me")) return;
+    if (link.closest(".modal-freelancer")) return;
+
+    e.preventDefault();
+    const overlay = document.getElementById("page-transition");
+    overlay.classList.add("show");
+    setTimeout(() => { window.location.href = url; }, 700);
   });
 });
