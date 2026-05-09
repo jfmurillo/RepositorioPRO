@@ -88,12 +88,21 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-/* ======================================= REVEAL ON SCROLL ======================================= */
+/* ======================================= REVEAL ON SCROLL (staggered) ======================================= */
 document.addEventListener("DOMContentLoaded", () => {
   const revealElements = document.querySelectorAll(
-    ".card, .project, .contact-form, .site-footer"
+    ".card, .project, .contact-form, .site-footer, .skill-box, .cert-box"
   );
   revealElements.forEach((el) => el.classList.add("reveal"));
+
+  // assign stagger index within each grid parent
+  [".bento-grid", ".skills-grid", ".certs-grid"].forEach(gridSel => {
+    const grid = document.querySelector(gridSel);
+    if (!grid) return;
+    grid.querySelectorAll(".reveal").forEach((el, i) => {
+      el.style.setProperty("--stagger", i);
+    });
+  });
 
   const revealObserver = new IntersectionObserver(
     (entries, obs) => {
@@ -104,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.12 }
   );
 
   revealElements.forEach((el) => revealObserver.observe(el));
@@ -156,6 +165,18 @@ const scrollFadeObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".scroll-fade").forEach(el => scrollFadeObserver.observe(el));
 
+/* ======================================= SECTION TITLE UNDERLINE ======================================= */
+const titleObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("title-visible");
+      titleObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll(".section-title").forEach(el => titleObserver.observe(el));
+
 /* ======================================= SMOOTH NAV + SECTION GLOW ======================================= */
 document.querySelectorAll("nav a[href^='#']").forEach(link => {
   link.addEventListener("click", function(e) {
@@ -185,3 +206,153 @@ document.querySelectorAll("a").forEach(link => {
     setTimeout(() => { window.location.href = url; }, 700);
   });
 });
+
+/* ======================================= SCROLL PROGRESS BAR ======================================= */
+(function () {
+  const bar = document.getElementById("scroll-progress");
+  if (!bar) return;
+  function update() {
+    const scrollTop = window.scrollY;
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = `scaleX(${docH > 0 ? scrollTop / docH : 0})`;
+  }
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+})();
+
+/* ======================================= COUNT-UP ANIMATION ======================================= */
+(function () {
+  const counters = document.querySelectorAll(".stat-number[data-count]");
+  if (!counters.length) return;
+
+  function animateCount(el) {
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || "";
+    const duration = 1600;
+    const start = performance.now();
+
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const countObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        countObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.8 });
+
+  counters.forEach(el => countObserver.observe(el));
+})();
+
+/* ======================================= TYPED TAGLINE ======================================= */
+(function () {
+  const el = document.querySelector(".hero-tagline");
+  if (!el) return;
+
+  const phrases = [
+    "Soluciones digitales que impactan.",
+    "Código que transforma ideas.",
+    "Datos que cuentan historias.",
+    "Interfaces que enamoran."
+  ];
+  const SPEED_TYPE   = 55;
+  const SPEED_DELETE = 28;
+  const PAUSE_END    = 2200;
+  const PAUSE_START  = 400;
+
+  let phraseIdx = 0;
+  let charIdx   = 0;
+  let deleting  = false;
+
+  function tick() {
+    const current = phrases[phraseIdx];
+    if (!deleting) {
+      charIdx++;
+      el.textContent = current.slice(0, charIdx);
+      if (charIdx === current.length) {
+        deleting = true;
+        setTimeout(tick, PAUSE_END);
+        return;
+      }
+      setTimeout(tick, SPEED_TYPE);
+    } else {
+      charIdx--;
+      el.textContent = current.slice(0, charIdx);
+      if (charIdx === 0) {
+        deleting  = false;
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        setTimeout(tick, PAUSE_START);
+        return;
+      }
+      setTimeout(tick, SPEED_DELETE);
+    }
+  }
+
+  // start after hero entrance animation settles
+  setTimeout(tick, 1000);
+})();
+
+/* ======================================= 3-D CARD TILT ======================================= */
+(function () {
+  const TILT_MAX  = 9;   // max degrees
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) return;
+
+  document.querySelectorAll(".project").forEach(card => {
+    card.addEventListener("mouseenter", () => {
+      card.style.transition = "box-shadow 0.28s ease, border-color 0.28s ease";
+    });
+
+    card.addEventListener("mousemove", e => {
+      const r = card.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width  - 0.5) * 2;  // -1 → 1
+      const y = ((e.clientY - r.top)  / r.height - 0.5) * 2;
+      card.style.transform = [
+        "perspective(900px)",
+        `rotateY(${(x * TILT_MAX).toFixed(2)}deg)`,
+        `rotateX(${(-y * TILT_MAX).toFixed(2)}deg)`,
+        "translateY(-6px)",
+        "scale(1.01)"
+      ].join(" ");
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transition = "transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.28s ease, border-color 0.28s ease";
+      card.style.transform  = "";
+    });
+  });
+})();
+
+/* ======================================= MAGNETIC CTA BUTTON ======================================= */
+(function () {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) return;
+
+  document.querySelectorAll(".btn-cv, .btn-contact").forEach(btn => {
+    btn.addEventListener("mousemove", e => {
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width  / 2) * 0.25;
+      const y = (e.clientY - r.top  - r.height / 2) * 0.25;
+      btn.style.transform = `translate(${x}px, ${y}px) translateY(-3px)`;
+    });
+
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "";
+      btn.style.transition = "transform 0.45s cubic-bezier(0.16,1,0.3,1), background 0.25s ease, box-shadow 0.25s ease";
+    });
+
+    btn.addEventListener("mouseenter", () => {
+      btn.style.transition = "transform 0.12s ease, background 0.25s ease, box-shadow 0.25s ease";
+    });
+  });
+})();

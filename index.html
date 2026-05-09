@@ -11,12 +11,21 @@
   <meta property="og:url" content="https://jfmurillo.github.io/RepositorioPRO/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
-  <!-- Anti-flash: apply saved theme before first paint -->
   <script>(function(){var t=localStorage.getItem('portfolio-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
 
 <body>
+
+  <!-- ANIMATED MESH BACKGROUND -->
+  <div class="mesh-bg" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
 
   <!-- HEADER -->
   <header class="site-header">
@@ -40,7 +49,7 @@
       <div class="hero-container">
 
         <div class="hero-left">
-          <h1 class="hero-title">J-Computer Engineering</h1>
+          <h1 class="hero-title">J-Computer<br>Engineering</h1>
           <div class="hero-badges">
             <span class="hero-badge">#Software Developer</span>
             <span class="hero-badge">#Data Analyst</span>
@@ -52,6 +61,22 @@
             aplicaciones web. Trabajo con SQL, Python, React, JavaScript y Node.js para
             entregar productos que importan.
           </p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="stat-number" data-count="4" data-suffix="+">4+</span>
+              <span class="stat-label">Años Exp.</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="hero-stat">
+              <span class="stat-number" data-count="10" data-suffix="+">10+</span>
+              <span class="stat-label">Proyectos</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="hero-stat">
+              <span class="stat-number" data-count="3" data-suffix="">3</span>
+              <span class="stat-label">Certificaciones</span>
+            </div>
+          </div>
           <a href="/RepositorioPRO/files/JosephMurillo_CV2025.pdf" download class="btn-cv hero-btn">
             <dotlottie-wc
               src="https://lottie.host/3f29e15f-524d-4e99-bed0-8b1fa461ad27/Y4dyYTplmn.json"
@@ -86,19 +111,25 @@
         <div class="skills-grid">
 
           <div class="skill-box">
-            <i data-lucide="monitor"></i>
+            <div class="skill-box-icon">
+              <i data-lucide="monitor"></i>
+            </div>
             <h3>Desarrollo Front-End</h3>
             <p>HTML5, CSS3, JavaScript, TypeScript, React, Bootstrap, Tailwind CSS</p>
           </div>
 
           <div class="skill-box">
-            <i data-lucide="server"></i>
+            <div class="skill-box-icon">
+              <i data-lucide="server"></i>
+            </div>
             <h3>Desarrollo Back-End</h3>
             <p>PHP, MySQL, PostgreSQL, Node.js, Express, Angular, C#</p>
           </div>
 
           <div class="skill-box">
-            <i data-lucide="plug"></i>
+            <div class="skill-box-icon">
+              <i data-lucide="plug"></i>
+            </div>
             <h3>Integración de APIs</h3>
             <p>REST APIs, JSON, Fetch API, Axios, Postman, OAuth 2.0</p>
           </div>
@@ -118,10 +149,10 @@
         <div class="divider-line"></div>
         <div class="divider-line"></div>
       </div>
-      <div class="grid">
+      <div class="bento-grid">
 
-        <!-- SIMECID -->
-        <article class="project" onclick="openModal('modal-simecid')">
+        <!-- SIMECID — featured (2 cols) -->
+        <article class="project featured" onclick="openModal('modal-simecid')">
           <img src="img/estetoscopio.png" class="thumb" alt="SIMECID"/>
           <div class="overlay">
             <h3>SIMECID</h3>
@@ -162,8 +193,8 @@
           </div>
         </article>
 
-        <!-- FLOWTICA MEDIA -->
-        <article class="project" onclick="openModal('modal-flowtica')">
+        <!-- FLOWTICA MEDIA — featured (2 cols) -->
+        <article class="project featured" onclick="openModal('modal-flowtica')">
           <img src="img/flowtica.png" class="thumb" alt="Flowtica Media"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="flowtica-placeholder" style="display:none">Flowtica Media</div>
@@ -191,19 +222,25 @@
       <div class="certs-grid scroll-fade">
 
         <div class="cert-box">
-          <i data-lucide="award"></i>
+          <div class="cert-icon-wrap">
+            <i data-lucide="layers"></i>
+          </div>
           <h3>Scrum Fundamentals Certified</h3>
           <p>Certiprof — Enero 2024</p>
         </div>
 
         <div class="cert-box">
-          <i data-lucide="award"></i>
+          <div class="cert-icon-wrap">
+            <i data-lucide="graduation-cap"></i>
+          </div>
           <h3>Técnico en Desarrollo de Software</h3>
           <p>Universidad CENFOTEC — Julio 2024</p>
         </div>
 
         <div class="cert-box">
-          <i data-lucide="award"></i>
+          <div class="cert-icon-wrap">
+            <i data-lucide="cloud"></i>
+          </div>
           <h3>AWS Technical Essentials</h3>
           <p>Amazon Web Services (AWS) — Noviembre 2025</p>
         </div>
@@ -222,29 +259,48 @@
         <div class="divider-line"></div>
         <div class="divider-line"></div>
       </div>
-      <form id="contact-form" class="contact-form">
-        <div class="form-group">
-          <input type="text" id="name" placeholder="Nombre" required>
+      <div class="contact-inner">
+
+        <div class="contact-form-col">
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <input type="text" id="name" placeholder="Nombre" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <textarea id="message" placeholder="Mensaje" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-contact">Enviar mensaje</button>
+          </form>
+          <p id="form-status"></p>
         </div>
-        <div class="form-group">
-          <input type="email" id="email" placeholder="Email" required>
+
+        <div class="contact-info-col">
+          <div class="contact-info-card">
+            <div class="contact-info-icon">
+              <i data-lucide="message-circle"></i>
+            </div>
+            <h3 class="contact-info-title">Hablemos</h3>
+            <p class="contact-info-text">
+              ¿Tienes un proyecto en mente o simplemente quieres saludar?
+              Estoy disponible y respondo a la brevedad.
+            </p>
+            <div class="contact-social">
+              <a href="https://github.com/jfmurillo" target="_blank" rel="noopener">
+                <i data-lucide="github"></i> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/joseph-murillo" target="_blank" rel="noopener">
+                <i data-lucide="linkedin"></i> LinkedIn
+              </a>
+              <a href="mailto:josephmurillo1621@gmail.com">
+                <i data-lucide="mail"></i> Email
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <textarea id="message" placeholder="Mensaje" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn-contact">Enviar</button>
-      </form>
-      <p id="form-status"></p>
-      <div class="contact-social">
-        <a href="https://github.com/jfmurillo" target="_blank" rel="noopener">
-          <i data-lucide="github"></i> GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/joseph-murillo" target="_blank" rel="noopener">
-          <i data-lucide="linkedin"></i> LinkedIn
-        </a>
-        <a href="mailto:josephmurillo1621@gmail.com">
-          <i data-lucide="mail"></i> Email
-        </a>
+
       </div>
     </section>
 
@@ -278,7 +334,7 @@
         <span class="tech-tag">REST API</span>
       </div>
       <div class="modal-actions">
-        <button class="modal-btn" onclick="closeModal('modal-simecid')">✖ Cerrar</button>
+        <button class="modal-btn" onclick="closeModal('modal-simecid')">Cerrar</button>
       </div>
     </div>
   </div>
@@ -303,7 +359,7 @@
         <span class="tech-tag">JavaScript</span>
       </div>
       <div class="modal-actions">
-        <button class="modal-btn" onclick="closeModal('modal-linked')">✖ Cerrar</button>
+        <button class="modal-btn" onclick="closeModal('modal-linked')">Cerrar</button>
       </div>
     </div>
   </div>
@@ -327,7 +383,7 @@
         <span class="tech-tag">JavaFX</span>
       </div>
       <div class="modal-actions">
-        <button class="modal-btn" onclick="closeModal('modal-hotel')">✖ Cerrar</button>
+        <button class="modal-btn" onclick="closeModal('modal-hotel')">Cerrar</button>
       </div>
     </div>
   </div>
@@ -358,8 +414,8 @@
       </div>
       <div class="modal-actions">
         <a href="https://flowticamedia.com" target="_blank" rel="noopener"
-           class="modal-btn">🌐 Ver Sitio en Vivo</a>
-        <button class="modal-btn-secondary" onclick="closeModal('modal-flowtica')">✖ Cerrar</button>
+           class="modal-btn">Ver Sitio en Vivo</a>
+        <button class="modal-btn-secondary" onclick="closeModal('modal-flowtica')">Cerrar</button>
       </div>
     </div>
   </div>
@@ -419,6 +475,9 @@
   <div id="page-transition">
     <div class="loader"></div>
   </div>
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div id="scroll-progress" aria-hidden="true"></div>
 
 </body>
 </html>
