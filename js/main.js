@@ -211,12 +211,15 @@ document.querySelectorAll("a").forEach(link => {
 (function () {
   const bar = document.getElementById("scroll-progress");
   if (!bar) return;
+  let rafId = null;
   function update() {
-    const scrollTop = window.scrollY;
     const docH = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.transform = `scaleX(${docH > 0 ? scrollTop / docH : 0})`;
+    bar.style.transform = `scaleX(${docH > 0 ? window.scrollY / docH : 0})`;
+    rafId = null;
   }
-  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("scroll", () => {
+    if (!rafId) rafId = requestAnimationFrame(update);
+  }, { passive: true });
   update();
 })();
 
@@ -302,33 +305,41 @@ document.querySelectorAll("a").forEach(link => {
   setTimeout(tick, 1000);
 })();
 
-/* ======================================= 3-D CARD TILT ======================================= */
+/* ======================================= 3-D CARD TILT (RAF-throttled) ======================================= */
 (function () {
-  const TILT_MAX  = 9;   // max degrees
+  const TILT_MAX = 8;
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (prefersReducedMotion) return;
 
   document.querySelectorAll(".project").forEach(card => {
+    let rafId = null;
+    let lastX = 0, lastY = 0;
+
     card.addEventListener("mouseenter", () => {
       card.style.transition = "box-shadow 0.28s ease, border-color 0.28s ease";
     });
 
     card.addEventListener("mousemove", e => {
       const r = card.getBoundingClientRect();
-      const x = ((e.clientX - r.left) / r.width  - 0.5) * 2;  // -1 → 1
-      const y = ((e.clientY - r.top)  / r.height - 0.5) * 2;
-      card.style.transform = [
-        "perspective(900px)",
-        `rotateY(${(x * TILT_MAX).toFixed(2)}deg)`,
-        `rotateX(${(-y * TILT_MAX).toFixed(2)}deg)`,
-        "translateY(-6px)",
-        "scale(1.01)"
-      ].join(" ");
+      lastX = ((e.clientX - r.left) / r.width  - 0.5) * 2;
+      lastY = ((e.clientY - r.top)  / r.height - 0.5) * 2;
+      if (!rafId) {
+        rafId = requestAnimationFrame(() => {
+          card.style.transform = [
+            "perspective(900px)",
+            `rotateY(${(lastX * TILT_MAX).toFixed(2)}deg)`,
+            `rotateX(${(-lastY * TILT_MAX).toFixed(2)}deg)`,
+            "translateY(-6px) scale(1.01)"
+          ].join(" ");
+          rafId = null;
+        });
+      }
     });
 
     card.addEventListener("mouseleave", () => {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
       card.style.transition = "transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.28s ease, border-color 0.28s ease";
-      card.style.transform  = "";
+      card.style.transform = "";
     });
   });
 })();

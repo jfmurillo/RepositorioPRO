@@ -33,10 +33,10 @@
   --border-default: rgba(56, 139, 203, 0.3);
   --border-focus:   var(--second);
 
-  /* Glassmorphism tokens */
+  /* Glassmorphism tokens — blur kept at 8px for smooth compositing */
   --glass-bg:     rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-blur:   16px;
+  --glass-blur:   8px;
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 
   /* Z-index scale */
@@ -72,7 +72,7 @@
   --border-default: rgba(19, 48, 104, 0.2);
   --border-focus:   var(--second);
 
-  --glass-bg:     rgba(255, 255, 255, 0.65);
+  --glass-bg:     rgba(255, 255, 255, 0.6);
   --glass-border: rgba(19, 48, 104, 0.15);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
@@ -94,9 +94,10 @@ body {
   font-size: 16px;
   line-height: 1.65;
   background: var(--bg-body);
-  background-attachment: fixed;
+  /* no background-attachment:fixed — it forces full repaint on every scroll frame */
   min-height: 100vh;
   color: var(--text-primary);
+  overflow-x: hidden;
   /* stop Google Translate from shifting body */
   top: 0px !important;
 }
@@ -106,17 +107,17 @@ h1, h2, h3, h4 {
   line-height: 1.2;
 }
 
-/* smooth theme transitions */
-*, *::before, *::after {
-  transition:
-    background-color 0.35s ease,
-    color 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
+/* theme transitions — targeted, not global (global * transition kills perf) */
+.site-header, .skill-box, .cert-box, .project, .modal-dialog,
+.hero-badge, .contact-social a, .theme-toggle, .whatsapp-btn,
+input, textarea, .btn-cv, .btn-contact, .nav a, .social-links a,
+.footer-col, .site-footer {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .section {
   padding: 96px 0;
+  contain: layout style;   /* prevent section from triggering full-page reflows */
 }
 
 h2 {
@@ -137,42 +138,36 @@ h2 {
   overflow: hidden;
 }
 
+/* blobs: fewer pixels, less blur = much faster compositing */
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.35;
+  filter: blur(48px);
+  opacity: 0.28;
   will-change: transform;
-  animation: blobFloat 16s ease-in-out infinite;
+  transform: translateZ(0);        /* own compositor layer */
+  animation: blobFloat 18s ease-in-out infinite;
 }
 
 .blob-1 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(56, 139, 203, 0.7), transparent 70%);
-  top: -180px;
-  left: -120px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(56, 139, 203, 0.65), transparent 70%);
+  top: -140px;
+  left: -100px;
 }
 
 .blob-2 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(0, 19, 130, 0.6), transparent 70%);
-  bottom: -120px;
-  right: -100px;
-  animation-duration: 20s;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 19, 130, 0.55), transparent 70%);
+  bottom: -100px;
+  right: -80px;
+  animation-duration: 22s;
   animation-direction: reverse;
 }
 
-.blob-3 {
-  width: 380px;
-  height: 380px;
-  background: radial-gradient(circle, rgba(56, 139, 203, 0.45), transparent 70%);
-  top: 45%;
-  left: 55%;
-  animation-duration: 12s;
-  animation-delay: -5s;
-}
+/* blob-3 removed — three simultaneous blurred divs is too expensive */
 
 @keyframes blobFloat {
   0%,  100% { transform: translate(0,    0)    scale(1); }
@@ -244,7 +239,7 @@ h2 {
 }
 
 .parallax {
-  background-attachment: fixed;
+  /* background-attachment: fixed removed — forces repaint on scroll */
   background-size: cover;
   background-position: center;
 }
@@ -363,16 +358,7 @@ nav a.nav-active {
   overflow: hidden;
 }
 
-/* subtle inner gradient overlay */
-.hero-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 70% at 10% 40%, rgba(56,139,203,0.1) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 90% 60%, rgba(0,19,130,0.12) 0%, transparent 60%);
-  pointer-events: none;
-}
+/* ::before overlay removed — mesh blobs already provide this depth */
 
 .hero-container {
   display: grid;
@@ -552,15 +538,122 @@ nav a.nav-active {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both,
-             float 7s ease-in-out 1.5s infinite;
+  animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
-.hero-lottie {
-  width: 440px;
-  height: 440px;
-  filter: drop-shadow(0 0 50px rgba(56, 139, 203, 0.25));
+/* ---- CSS Orb — replaces Lottie (zero JS overhead, GPU-composited) ---- */
+.hero-orb {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  animation: float 9s ease-in-out 1.5s infinite;
+  will-change: transform;
 }
+
+/* background bloom — opacity+scale only = compositor-friendly */
+.orb-glow {
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 139, 203, 0.22) 0%, transparent 68%);
+  animation: orbBreath 5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* center sphere */
+.orb-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 136px;
+  height: 136px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%,
+    rgba(168, 212, 245, 0.95) 0%,
+    rgba(56, 139, 203, 0.9)  38%,
+    rgba(0, 19, 130, 0.95)   80%);
+  box-shadow:
+    0 0 0 1px rgba(56, 139, 203, 0.5),
+    0 0 36px rgba(56, 139, 203, 0.45);
+  overflow: hidden;
+}
+
+.orb-shine {
+  position: absolute;
+  top: 14%;
+  left: 18%;
+  width: 34%;
+  height: 24%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
+/* orbit rings — transform only, runs on compositor */
+.orb-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 139, 203, 0.22);
+  will-change: transform;
+}
+
+.orb-ring-1 {
+  width: 210px; height: 210px;
+  top: calc(50% - 105px); left: calc(50% - 105px);
+  animation: orbit 7s linear infinite;
+}
+
+.orb-ring-2 {
+  width: 295px; height: 295px;
+  top: calc(50% - 147.5px); left: calc(50% - 147.5px);
+  border-style: dashed;
+  border-color: rgba(56, 139, 203, 0.14);
+  animation: orbit 14s linear infinite reverse;
+}
+
+.orb-ring-3 {
+  width: 378px; height: 378px;
+  top: calc(50% - 189px); left: calc(50% - 189px);
+  border-color: rgba(56, 139, 203, 0.07);
+  animation: orbit 22s linear infinite;
+}
+
+.orb-dot {
+  position: absolute;
+  top: -5px;
+  left: calc(50% - 5px);
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--second);
+  box-shadow: 0 0 8px rgba(56, 139, 203, 0.9), 0 0 16px rgba(56, 139, 203, 0.4);
+}
+
+/* floating code badges */
+.orb-badge {
+  position: absolute;
+  background: rgba(3, 18, 63, 0.7);
+  border: 1px solid rgba(56, 139, 203, 0.35);
+  color: var(--second);
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 5px 11px;
+  border-radius: 8px;
+  will-change: transform;
+  animation: badgeFloat 6s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+[data-theme="light"] .orb-badge {
+  background: rgba(240, 244, 255, 0.85);
+  border-color: rgba(56, 139, 203, 0.4);
+}
+
+.ob-1 { top: 6%;  left: 2%;   animation-delay: 0s;   animation-duration: 7s;   }
+.ob-2 { top: 72%; left: 0%;   animation-delay: -2.2s; animation-duration: 6.2s; }
+.ob-3 { top: 5%;  right: 1%;  animation-delay: -4.1s; animation-duration: 8.1s; }
+.ob-4 { top: 74%; right: 0%;  animation-delay: -1.4s; animation-duration: 5.8s; }
 
 /* ============================================================
    SECTION SHARED
@@ -1452,10 +1545,8 @@ input:focus, textarea:focus {
     grid-column: span 2;
   }
 
-  .hero-lottie {
-    width: 360px;
-    height: 360px;
-  }
+  .hero-orb { width: 320px; height: 320px; }
+  .orb-ring-3 { width: 318px; height: 318px; top: calc(50% - 159px); left: calc(50% - 159px); }
 }
 
 /* ============================================================
@@ -1498,10 +1589,10 @@ input:focus, textarea:focus {
 
   .hero-right { margin-top: 10px; }
 
-  .hero-lottie {
-    width: 280px;
-    height: 280px;
-  }
+  .hero-orb { width: 260px; height: 260px; }
+  .orb-ring-3 { width: 258px; height: 258px; top: calc(50% - 129px); left: calc(50% - 129px); }
+  .orb-core { width: 100px; height: 100px; }
+  .orb-badge { font-size: 0.72rem; padding: 4px 8px; }
 
   .bento-grid {
     grid-template-columns: 1fr;
@@ -1574,7 +1665,22 @@ input:focus, textarea:focus {
 
 @keyframes float {
   0%,  100% { transform: translateY(0); }
-  50%        { transform: translateY(-18px); }
+  50%        { transform: translateY(-12px); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes orbBreath {
+  0%, 100% { transform: scale(1);    opacity: 0.65; }
+  50%       { transform: scale(1.18); opacity: 1; }
+}
+
+@keyframes badgeFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-9px); }
 }
 
 @keyframes blink {
@@ -1820,23 +1926,21 @@ nav a.nav-active {
 }
 
 /* ============================================================
-   REDUCED MOTION — extend to new animations
+   REDUCED MOTION — all animations off
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
-  .hero-title,
-  .hero-badges,
-  .hero-tagline,
-  .hero-description,
-  .hero-stats,
-  .hero-btn,
-  .hero-right,
-  .whatsapp-btn::before,
-  .whatsapp-btn::after,
-  #scroll-progress {
+  .blob, .hero-orb, .orb-glow, .orb-ring, .orb-dot, .orb-badge,
+  .hero-title, .hero-badges, .hero-tagline, .hero-description,
+  .hero-stats, .hero-btn, .hero-right,
+  .whatsapp-btn::before, .whatsapp-btn::after,
+  #scroll-progress, .section-title::after {
     animation: none !important;
+    transition: none !important;
   }
-  .hero-tagline::after { animation: none !important; }
+  .hero-tagline::after { display: none; }
   .btn-cv::after, .btn-contact::after { transition: none !important; }
-  .skill-box::before { transition: none !important; }
+  .skill-box::before { display: none; }
   .overlay { transform: none !important; }
+  .scroll-fade { opacity: 1 !important; transform: none !important; }
+  .reveal      { opacity: 1 !important; transform: none !important; }
 }
