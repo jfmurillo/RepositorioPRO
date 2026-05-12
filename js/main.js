@@ -91,12 +91,12 @@ window.addEventListener("keydown", (e) => {
 /* ======================================= REVEAL ON SCROLL (staggered) ======================================= */
 document.addEventListener("DOMContentLoaded", () => {
   const revealElements = document.querySelectorAll(
-    ".card, .project, .contact-form, .site-footer, .skill-box, .cert-box"
+    ".card, .contact-form, .site-footer, .skill-box, .cert-box"
   );
   revealElements.forEach((el) => el.classList.add("reveal"));
 
   // assign stagger index within each grid parent
-  [".bento-grid", ".skills-grid", ".certs-grid"].forEach(gridSel => {
+  [".skills-grid", ".certs-grid"].forEach(gridSel => {
     const grid = document.querySelector(gridSel);
     if (!grid) return;
     grid.querySelectorAll(".reveal").forEach((el, i) => {
@@ -118,6 +118,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   revealElements.forEach((el) => revealObserver.observe(el));
 });
+
+/* ======================================= PROJECT CARD STAGGER ======================================= */
+(function () {
+  const staggerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = parseInt(entry.target.dataset.stagger || '0') * 150;
+        setTimeout(() => entry.target.classList.add('visible'), delay);
+        staggerObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.project-card').forEach((card, i) => {
+    card.dataset.stagger = i;
+    staggerObserver.observe(card);
+  });
+})();
 
 /* ======================================= SCROLL TO TOP ======================================= */
 document.addEventListener("DOMContentLoaded", () => {
@@ -311,7 +329,7 @@ document.querySelectorAll("a").forEach(link => {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (prefersReducedMotion) return;
 
-  document.querySelectorAll(".project").forEach(card => {
+  document.querySelectorAll(".project-card").forEach(card => {
     let rafId = null;
     let lastX = 0, lastY = 0;
 
@@ -338,8 +356,9 @@ document.querySelectorAll("a").forEach(link => {
 
     card.addEventListener("mouseleave", () => {
       if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-      card.style.transition = "transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.28s ease, border-color 0.28s ease";
-      card.style.transform = "";
+      card.style.transition = "opacity 0.6s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease, box-shadow 0.3s ease";
+      card.style.transform = card.classList.contains('visible') ? "translateY(-4px)" : "";
+      requestAnimationFrame(() => { card.style.transform = ""; });
     });
   });
 })();

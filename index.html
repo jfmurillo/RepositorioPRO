@@ -157,14 +157,19 @@
         <div class="divider-line"></div>
         <div class="divider-line"></div>
       </div>
-      <div class="bento-grid">
+      <div class="projects-grid">
 
-        <!-- SIMECID — featured (2 cols) -->
-        <article class="project featured" onclick="openModal('modal-simecid')">
-          <img src="img/estetoscopio.png" class="thumb" alt="SIMECID"/>
-          <div class="overlay">
-            <h3>SIMECID</h3>
-            <p>Plataforma de Citas Médicas</p>
+        <!-- 01: SIMECID -->
+        <article class="project-card" onclick="openModal('modal-simecid')">
+          <div class="card-icon-wrapper">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <polyline points="2,16 7,16 10,8 14,24 18,12 22,20 25,16 30,16"
+                stroke="#58a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">SIMECID</h3>
+            <p class="card-desc" data-es="Plataforma web para gestión de citas médicas con backend en C# y frontend interactivo." data-en="Web platform for medical appointment management with C# backend and interactive frontend.">Plataforma web para gestión de citas médicas con backend en C# y frontend interactivo.</p>
             <div class="tech-tags">
               <span class="tech-tag">C#</span>
               <span class="tech-tag">HTML5</span>
@@ -172,48 +177,96 @@
               <span class="tech-tag">JavaScript</span>
             </div>
           </div>
+          <div class="card-footer">
+            <div class="card-number">01</div>
+            <span class="card-link">
+              <span data-es="Ver Proyecto" data-en="View Project">Ver Proyecto</span>
+              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 7h12M8 3l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
         </article>
 
-        <!-- LINKED -->
-        <article class="project" onclick="openModal('modal-linked')">
-          <img src="img/Imagen_Computadora.jpeg" class="thumb" alt="Linked"/>
-          <div class="overlay">
-            <h3>Linked</h3>
-            <p>Portal de Empleo</p>
+        <!-- 02: LINKED -->
+        <article class="project-card" onclick="openModal('modal-linked')">
+          <div class="card-icon-wrapper">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="4" y="12" width="24" height="16" rx="3" stroke="#58a6ff" stroke-width="2"/>
+              <path d="M11 12V9a5 5 0 0 1 10 0v3" stroke="#58a6ff" stroke-width="2"/>
+              <line x1="16" y1="17" x2="16" y2="23" stroke="#58a6ff" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Linked</h3>
+            <p class="card-desc" data-es="Portal de empleo con registro de usuarios, perfiles y postulaciones en tiempo real." data-en="Job portal with user registration, profiles, and real-time applications.">Portal de empleo con registro de usuarios, perfiles y postulaciones en tiempo real.</p>
             <div class="tech-tags">
               <span class="tech-tag">HTML5</span>
               <span class="tech-tag">CSS3</span>
               <span class="tech-tag">JavaScript</span>
             </div>
           </div>
+          <div class="card-footer">
+            <div class="card-number">02</div>
+            <span class="card-link">
+              <span data-es="Ver Proyecto" data-en="View Project">Ver Proyecto</span>
+              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 7h12M8 3l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
         </article>
 
-        <!-- HOTEL MGMT -->
-        <article class="project" onclick="openModal('modal-hotel')">
-          <img src="img/legacyhotel.webp" class="thumb" alt="Hotel Management"/>
-          <div class="overlay">
-            <h3>Hotel Management</h3>
-            <p>Java + JavaFX</p>
+        <!-- 03: HOTEL MANAGEMENT -->
+        <article class="project-card" onclick="openModal('modal-hotel')">
+          <div class="card-icon-wrapper">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="12" y="2" width="8" height="5" rx="1" stroke="#58a6ff" stroke-width="2"/>
+              <rect x="4" y="7" width="24" height="21" rx="2" stroke="#58a6ff" stroke-width="2"/>
+              <line x1="16" y1="7" x2="16" y2="28" stroke="#58a6ff" stroke-width="2"/>
+              <rect x="7" y="11" width="4" height="4" rx="1" fill="rgba(88,166,255,0.45)"/>
+              <rect x="21" y="11" width="4" height="4" rx="1" fill="rgba(88,166,255,0.45)"/>
+              <rect x="7" y="19" width="4" height="4" rx="1" fill="rgba(88,166,255,0.45)"/>
+              <rect x="21" y="19" width="4" height="4" rx="1" fill="rgba(88,166,255,0.45)"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Hotel Management</h3>
+            <p class="card-desc" data-es="App de escritorio para gestión hotelera: reservas, check-in, clientes y reportes." data-en="Desktop app for hotel management: reservations, check-in, guests, and reports.">App de escritorio para gestión hotelera: reservas, check-in, clientes y reportes.</p>
             <div class="tech-tags">
               <span class="tech-tag">Java</span>
               <span class="tech-tag">JavaFX</span>
             </div>
           </div>
+          <div class="card-footer">
+            <div class="card-number">03</div>
+            <span class="card-link">
+              <span data-es="Ver Proyecto" data-en="View Project">Ver Proyecto</span>
+              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 7h12M8 3l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
         </article>
 
-        <!-- FLOWTICA MEDIA — featured (2 cols) -->
-        <article class="project featured" onclick="openModal('modal-flowtica')">
-          <img src="img/flowtica.png" class="thumb" alt="Flowtica Media"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-          <div class="flowtica-placeholder" style="display:none">Flowtica Media</div>
-          <div class="overlay">
-            <h3>Flowtica Media</h3>
-            <p>Sitio Web de Servicios</p>
+        <!-- 04: FLOWTICA MEDIA -->
+        <article class="project-card" onclick="openModal('modal-flowtica')">
+          <div class="card-icon-wrapper">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <polygon points="18,3 7,18 15,18 14,29 25,14 17,14"
+                stroke="#58a6ff" stroke-width="2" stroke-linejoin="round"
+                fill="rgba(88,166,255,0.15)"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Flowtica Media</h3>
+            <p class="card-desc" data-es="Sitio web para agencia de producción digital: servicios, portafolio y contacto." data-en="Website for a digital production agency: services, portfolio, and contact.">Sitio web para agencia de producción digital: servicios, portafolio y contacto.</p>
             <div class="tech-tags">
               <span class="tech-tag">HTML5</span>
               <span class="tech-tag">CSS3</span>
               <span class="tech-tag">JavaScript</span>
             </div>
+          </div>
+          <div class="card-footer">
+            <div class="card-number">04</div>
+            <span class="card-link">
+              <span data-es="Ver Proyecto" data-en="View Project">Ver Proyecto</span>
+              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 7h12M8 3l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </div>
         </article>
 
