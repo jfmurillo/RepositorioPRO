@@ -361,27 +361,46 @@ nav a.nav-active {
 /* ::before overlay removed — mesh blobs already provide this depth */
 
 .hero-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
   width: 100%;
-  max-width: 1300px;
+  max-width: 860px;
   margin: auto;
   position: relative;
+  z-index: 2;
+  gap: 20px;
 }
 
-.hero-left {
-  color: var(--text-primary);
-  max-width: 600px;
+/* ---- hero eyebrow label ---- */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--second);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+}
+
+.eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--second);
+  animation: shapePulse 2s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
 /* gradient title with shimmer sweep */
 .hero-title {
-  font-size: 3.4rem;
-  font-weight: 800;
+  font-size: 3.6rem;
+  font-weight: 900;
   line-height: 1.08;
-  margin-bottom: 24px;
+  margin: 0;
   background: linear-gradient(135deg, #ffffff 0%, var(--second) 45%, #a8d4f5 70%, #ffffff 100%);
   background-size: 250% auto;
   -webkit-background-clip: text;
@@ -391,12 +410,27 @@ nav a.nav-active {
              gradientShift 7s linear 1.2s infinite;
 }
 
+/* accent span overrides parent's bg-clip:text */
+.hero-accent {
+  background: none;
+  -webkit-text-fill-color: var(--second);
+  color: var(--second);
+  animation: none;
+  display: inline;
+}
+
 [data-theme="light"] .hero-title {
   background: linear-gradient(135deg, var(--main) 0%, var(--second) 50%, var(--main) 100%);
   background-size: 250% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+[data-theme="light"] .hero-accent {
+  background: none;
+  -webkit-text-fill-color: #1a6fcf;
+  color: #1a6fcf;
 }
 
 /* hero badges */
@@ -449,8 +483,9 @@ nav a.nav-active {
   font-weight: 400;
   line-height: 1.75;
   color: var(--text-secondary);
-  max-width: 500px;
-  margin: 0 0 32px 0;
+  max-width: 580px;
+  text-align: center;
+  margin: 0;
   animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
 }
 
@@ -534,126 +569,93 @@ nav a.nav-active {
   pointer-events: none;
 }
 
-.hero-right {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
-}
-
-/* ---- CSS Orb — replaces Lottie (zero JS overhead, GPU-composited) ---- */
-.hero-orb {
-  position: relative;
-  width: 380px;
-  height: 380px;
-  animation: float 9s ease-in-out 1.5s infinite;
-  will-change: transform;
-}
-
-/* background bloom — opacity+scale only = compositor-friendly */
-.orb-glow {
+/* ============================================================
+   SHAPE LANDING HERO — floating geometric background shapes
+   ============================================================ */
+.shapes-container {
   position: absolute;
-  inset: -30px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(88, 166, 255, 0.22) 0%, transparent 68%);
-  animation: orbBreath 5s ease-in-out infinite;
-  will-change: transform, opacity;
-}
-
-/* center sphere */
-.orb-core {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 136px;
-  height: 136px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(circle at 34% 28%,
-    rgba(168, 212, 245, 0.95) 0%,
-    rgba(88, 166, 255, 0.9)  38%,
-    rgba(0, 19, 130, 0.95)   80%);
-  box-shadow:
-    0 0 0 1px rgba(88, 166, 255, 0.5),
-    0 0 36px rgba(88, 166, 255, 0.45);
+  inset: 0;
   overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.orb-shine {
+.shape {
   position: absolute;
-  top: 14%;
-  left: 18%;
-  width: 34%;
-  height: 24%;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  filter: blur(5px);
-}
-
-/* orbit rings — transform only, runs on compositor */
-.orb-ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(88, 166, 255, 0.22);
   will-change: transform;
+  opacity: 0.13;
 }
 
-.orb-ring-1 {
-  width: 210px; height: 210px;
-  top: calc(50% - 105px); left: calc(50% - 105px);
-  animation: orbit 7s linear infinite;
-}
-
-.orb-ring-2 {
-  width: 295px; height: 295px;
-  top: calc(50% - 147.5px); left: calc(50% - 147.5px);
-  border-style: dashed;
-  border-color: rgba(88, 166, 255, 0.14);
-  animation: orbit 14s linear infinite reverse;
-}
-
-.orb-ring-3 {
-  width: 378px; height: 378px;
-  top: calc(50% - 189px); left: calc(50% - 189px);
-  border-color: rgba(88, 166, 255, 0.07);
-  animation: orbit 22s linear infinite;
-}
-
-.orb-dot {
-  position: absolute;
-  top: -5px;
-  left: calc(50% - 5px);
-  width: 10px; height: 10px;
+/* Large circle — top right */
+.shape-1 {
+  width: 340px;
+  height: 340px;
   border-radius: 50%;
-  background: var(--second);
-  box-shadow: 0 0 8px rgba(88, 166, 255, 0.9), 0 0 16px rgba(88, 166, 255, 0.4);
+  background: radial-gradient(circle, rgba(88, 166, 255, 0.7) 0%, rgba(88, 166, 255, 0.15) 70%);
+  top: -100px;
+  right: -80px;
+  animation: shapeFloat 8s ease-in-out infinite alternate,
+             shapePulse 6s ease-in-out infinite;
 }
 
-/* floating code badges */
-.orb-badge {
-  position: absolute;
-  background: rgba(3, 18, 63, 0.7);
-  border: 1px solid rgba(88, 166, 255, 0.35);
-  color: var(--second);
-  font-family: "Roboto Mono", monospace;
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 5px 11px;
-  border-radius: 8px;
-  will-change: transform;
-  animation: badgeFloat 6s ease-in-out infinite;
-  white-space: nowrap;
+/* Hexagon — mid left */
+.shape-2 {
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, rgba(88, 166, 255, 0.55), rgba(130, 80, 255, 0.3));
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  left: 4%;
+  top: 28%;
+  opacity: 0.1;
+  animation: shapeFloatRotate 26s linear infinite;
 }
 
-[data-theme="light"] .orb-badge {
-  background: rgba(240, 244, 255, 0.85);
-  border-color: rgba(88, 166, 255, 0.4);
+/* Diamond — bottom right */
+.shape-3 {
+  width: 110px;
+  height: 110px;
+  background: linear-gradient(45deg, rgba(88, 166, 255, 0.45), rgba(88, 166, 255, 0.1));
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  right: 10%;
+  bottom: 14%;
+  opacity: 0.12;
+  animation: shapeFloatRotate 20s linear infinite reverse;
 }
 
-.ob-1 { top: 6%;  left: 2%;   animation-delay: 0s;   animation-duration: 7s;   }
-.ob-2 { top: 72%; left: 0%;   animation-delay: -2.2s; animation-duration: 6.2s; }
-.ob-3 { top: 5%;  right: 1%;  animation-delay: -4.1s; animation-duration: 8.1s; }
-.ob-4 { top: 74%; right: 0%;  animation-delay: -1.4s; animation-duration: 5.8s; }
+/* Small circle — top left */
+.shape-4 {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(88, 166, 255, 0.35);
+  top: 10%;
+  left: 12%;
+  animation: shapeFloat 9s ease-in-out 0.5s infinite alternate,
+             shapePulse 5s ease-in-out 1s infinite;
+}
+
+/* Horizontal bar — center right */
+.shape-5 {
+  width: 220px;
+  height: 5px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.7), transparent);
+  right: 6%;
+  top: 42%;
+  animation: shapeFloat 7s ease-in-out 3s infinite alternate;
+}
+
+/* Hollow ring — bottom left */
+.shape-6 {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2px solid rgba(88, 166, 255, 0.4);
+  bottom: 8%;
+  left: 6%;
+  animation: shapeFloat 10s ease-in-out 1.5s infinite alternate,
+             shapeRotateSlow 32s linear infinite;
+}
 
 /* ============================================================
    SECTION SHARED
@@ -1536,17 +1538,9 @@ input:focus, textarea:focus {
    RESPONSIVE — tablet (≤ 1024px)
    ============================================================ */
 @media (max-width: 1024px) {
-  .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 260px;
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
   }
-
-  .bento-grid .project.featured {
-    grid-column: span 2;
-  }
-
-  .hero-orb { width: 320px; height: 320px; }
-  .orb-ring-3 { width: 318px; height: 318px; top: calc(50% - 159px); left: calc(50% - 159px); }
 }
 
 /* ============================================================
@@ -1574,33 +1568,17 @@ input:focus, textarea:focus {
     padding: 60px 5%;
   }
 
-  .hero-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
   .hero-title {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
   }
 
-  .hero-badges  { justify-content: center; }
-  .hero-description { margin: 0 auto 28px; }
-  .hero-stats { margin: 0 auto 28px; flex-wrap: wrap; justify-content: center; }
+  .hero-stats { flex-wrap: wrap; justify-content: center; }
 
-  .hero-right { margin-top: 10px; }
+  .shape-1 { width: 220px; height: 220px; opacity: 0.08; }
+  .shape-2, .shape-3 { opacity: 0.07; }
 
-  .hero-orb { width: 260px; height: 260px; }
-  .orb-ring-3 { width: 258px; height: 258px; top: calc(50% - 129px); left: calc(50% - 129px); }
-  .orb-core { width: 100px; height: 100px; }
-  .orb-badge { font-size: 0.72rem; padding: 4px 8px; }
-
-  .bento-grid {
+  .projects-grid {
     grid-template-columns: 1fr;
-    grid-auto-rows: 240px;
-  }
-
-  .bento-grid .project.featured {
-    grid-column: span 1;
   }
 
   .contact-inner {
@@ -1634,6 +1612,7 @@ input:focus, textarea:focus {
   .hero-title { font-size: 2rem; }
   .hero-stats { padding: 14px 16px; gap: 0; }
   .hero-stat  { padding: 0 14px; }
+  .shapes-container .shape { opacity: 0.06; }
   .stat-number { font-size: 1.6rem; }
 
   .footer-container {
@@ -1668,19 +1647,25 @@ input:focus, textarea:focus {
   50%        { transform: translateY(-12px); }
 }
 
-@keyframes orbit {
+@keyframes shapeFloat {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-22px); }
+}
+
+@keyframes shapeFloatRotate {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  50%  { transform: translateY(-18px) rotate(180deg); }
+  100% { transform: translateY(0px) rotate(360deg); }
+}
+
+@keyframes shapeRotateSlow {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
 
-@keyframes orbBreath {
-  0%, 100% { transform: scale(1);    opacity: 0.65; }
-  50%       { transform: scale(1.18); opacity: 1; }
-}
-
-@keyframes badgeFloat {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-9px); }
+@keyframes shapePulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.06); }
 }
 
 @keyframes blink {
@@ -1929,18 +1914,18 @@ nav a.nav-active {
    REDUCED MOTION — all animations off
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
-  .blob, .hero-orb, .orb-glow, .orb-ring, .orb-dot, .orb-badge,
+  .blob, .shape, .eyebrow-dot,
   .hero-title, .hero-badges, .hero-tagline, .hero-description,
-  .hero-stats, .hero-btn, .hero-right,
+  .hero-stats, .hero-btn,
   .whatsapp-btn::before, .whatsapp-btn::after,
-  #scroll-progress, .section-title::after {
+  #scroll-progress, .section-title::after,
+  .project-card, .btn-glass::before, .btn-glass::after {
     animation: none !important;
     transition: none !important;
   }
   .hero-tagline::after { display: none; }
-  .btn-cv::after, .btn-contact::after { transition: none !important; }
-  .skill-box::before { display: none; }
-  .overlay { transform: none !important; }
+  .skill-box::before, .project-card::before { display: none; }
+  .project-card { opacity: 1 !important; transform: none !important; }
   .scroll-fade { opacity: 1 !important; transform: none !important; }
   .reveal      { opacity: 1 !important; transform: none !important; }
 }
