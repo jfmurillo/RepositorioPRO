@@ -49,7 +49,9 @@ if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
     const status = document.getElementById("form-status");
-    status.textContent = "¡Mensaje enviado correctamente!";
+    status.textContent = (window._portfolioLang === 'en')
+      ? "Message sent successfully!"
+      : "¡Mensaje enviado correctamente!";
     status.style.color = "#00ff9d";
     this.reset();
   });
@@ -280,12 +282,11 @@ document.querySelectorAll("a").forEach(link => {
   const el = document.querySelector(".hero-tagline");
   if (!el) return;
 
-  const phrases = [
-    "Soluciones digitales que impactan.",
-    "Código que transforma ideas.",
-    "Datos que cuentan historias.",
-    "Interfaces que enamoran."
-  ];
+  const PHRASES = {
+    es: ["Soluciones digitales que impactan.", "Código que transforma ideas.", "Datos que cuentan historias.", "Interfaces que enamoran."],
+    en: ["Turning ideas into digital experiences.", "Code that transforms concepts.", "Data that tells stories.", "Interfaces that inspire."]
+  };
+  const phrases = () => PHRASES[window._portfolioLang || 'es'];
   const SPEED_TYPE   = 55;
   const SPEED_DELETE = 28;
   const PAUSE_END    = 2200;
@@ -296,7 +297,7 @@ document.querySelectorAll("a").forEach(link => {
   let deleting  = false;
 
   function tick() {
-    const current = phrases[phraseIdx];
+    const current = phrases()[phraseIdx];
     if (!deleting) {
       charIdx++;
       el.textContent = current.slice(0, charIdx);
@@ -361,6 +362,58 @@ document.querySelectorAll("a").forEach(link => {
       requestAnimationFrame(() => { card.style.transform = ""; });
     });
   });
+})();
+
+/* ======================================= EN / ES LANGUAGE TOGGLE ======================================= */
+(function () {
+  const btn   = document.getElementById('lang-toggle');
+  const label = document.getElementById('lang-label');
+  if (!btn || !label) return;
+
+  const TYPED_PHRASES = {
+    es: [
+      "Soluciones digitales que impactan.",
+      "Código que transforma ideas.",
+      "Datos que cuentan historias.",
+      "Interfaces que enamoran."
+    ],
+    en: [
+      "Turning ideas into digital experiences.",
+      "Code that transforms concepts.",
+      "Data that tells stories.",
+      "Interfaces that inspire."
+    ]
+  };
+
+  function applyLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    /* Toggle label shows the OTHER language (what clicking will switch to) */
+    label.textContent = lang === 'es' ? 'EN' : 'ES';
+    localStorage.setItem('portfolio-lang', lang);
+
+    /* Swap text nodes */
+    document.querySelectorAll('[data-en][data-es]').forEach(el => {
+      el.textContent = el.dataset[lang];
+    });
+
+    /* Swap placeholders */
+    document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+      el.placeholder = lang === 'en'
+        ? el.dataset.enPlaceholder
+        : el.dataset.esPlaceholder;
+    });
+
+    /* Update typed tagline phrases array by storing current lang globally */
+    window._portfolioLang = lang;
+  }
+
+  btn.addEventListener('click', () => {
+    const current = localStorage.getItem('portfolio-lang') || 'es';
+    applyLang(current === 'es' ? 'en' : 'es');
+  });
+
+  /* Init on page load */
+  applyLang(localStorage.getItem('portfolio-lang') || 'es');
 })();
 
 /* ======================================= LIQUID GLASS BUTTONS ======================================= */

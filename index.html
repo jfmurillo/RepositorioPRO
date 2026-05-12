@@ -30,15 +30,20 @@
   <header class="site-header">
     <img src="img/IMAGOTIPO2.svg" class="navbar-logo" alt="logo">
     <nav>
-      <a href="#hero">Inicio</a>
-      <a href="#skills">Habilidades</a>
-      <a href="#projects">Proyectos</a>
-      <a href="#certifications">Certificaciones</a>
-      <a href="#contact">Contacto</a>
+      <a href="#hero" data-es="Inicio" data-en="Home">Inicio</a>
+      <a href="#skills" data-es="Habilidades" data-en="Skills">Habilidades</a>
+      <a href="#projects" data-es="Proyectos" data-en="Projects">Proyectos</a>
+      <a href="#certifications" data-es="Certificaciones" data-en="Certifications">Certificaciones</a>
+      <a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a>
     </nav>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
-      <i data-lucide="sun"></i>
-    </button>
+    <div class="header-controls">
+      <button class="lang-toggle btn-glass" id="lang-toggle" aria-label="Switch language">
+        <span id="lang-label">EN</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+        <i data-lucide="sun"></i>
+      </button>
+    </div>
   </header>
 
   <main>
@@ -107,8 +112,8 @@
     <!-- HABILIDADES -->
     <section id="skills" class="section skills-section">
       <div class="container skills-container">
-        <h2 class="section-title">Habilidades</h2>
-        <p class="section-description">
+        <h2 class="section-title" data-es="Habilidades" data-en="Skills">Habilidades</h2>
+        <p class="section-description" data-es="Un conjunto de habilidades técnicas orientadas al desarrollo moderno, desde interfaces intuitivas hasta arquitecturas sólidas en el backend." data-en="A technical skill set focused on modern development — from intuitive interfaces to solid backend architectures.">
           Un conjunto de habilidades técnicas orientadas al desarrollo moderno,
           desde interfaces intuitivas hasta arquitecturas sólidas en el backend.
         </p>
@@ -148,8 +153,8 @@
 
     <!-- PROYECTOS -->
     <section id="projects" class="section projects-section">
-      <h2 class="section-title">Proyectos</h2>
-      <p class="section-description">
+      <h2 class="section-title" data-es="Proyectos" data-en="Projects">Proyectos</h2>
+      <p class="section-description" data-es="Algunos de los proyectos más relevantes que he desarrollado, aplicando buenas prácticas, optimización de procesos y experiencia real en producción." data-en="Some of the most relevant projects I have built, applying best practices, process optimization, and real production experience.">
         Algunos de los proyectos más relevantes que he desarrollado,
         aplicando buenas prácticas, optimización de procesos y experiencia real en producción.
       </p>
@@ -275,8 +280,8 @@
 
     <!-- CERTIFICACIONES -->
     <section id="certifications" class="section certifications-section">
-      <h2 class="section-title scroll-fade">Certificaciones</h2>
-      <p class="section-desc scroll-fade">
+      <h2 class="section-title scroll-fade" data-es="Certificaciones" data-en="Certifications">Certificaciones</h2>
+      <p class="section-desc scroll-fade" data-es="Certificaciones que avalan mis conocimientos técnicos, metodologías y competencias dentro del área del desarrollo de software." data-en="Certifications that validate my technical knowledge, methodologies, and competencies in software development.">
         Certificaciones que avalan mis conocimientos técnicos, metodologías y competencias
         dentro del área del desarrollo de software.
       </p>
@@ -311,8 +316,8 @@
 
     <!-- CONTACTO -->
     <section id="contact" class="section contact-section">
-      <h2 class="section-title">Contacto</h2>
-      <p class="section-description">
+      <h2 class="section-title" data-es="Contacto" data-en="Contact">Contacto</h2>
+      <p class="section-description" data-es="¿Interesado en colaborar o necesitas más información? Puedes escribirme directamente mediante el formulario o por mis redes profesionales." data-en="Interested in collaborating or need more information? You can reach me directly through the form or via my professional networks.">
         ¿Interesado en colaborar o necesitas más información?
         Puedes escribirme directamente mediante el formulario o por mis redes profesionales.
       </p>
@@ -325,13 +330,13 @@
         <div class="contact-form-col">
           <form id="contact-form" class="contact-form">
             <div class="form-group">
-              <input type="text" id="name" placeholder="Nombre" required>
+              <input type="text" id="name" placeholder="Nombre" data-es-placeholder="Nombre" data-en-placeholder="Name" required>
             </div>
             <div class="form-group">
-              <input type="email" id="email" placeholder="Email" required>
+              <input type="email" id="email" placeholder="Email" data-es-placeholder="Email" data-en-placeholder="Email" required>
             </div>
             <div class="form-group">
-              <textarea id="message" placeholder="Mensaje" rows="5" required></textarea>
+              <textarea id="message" placeholder="Mensaje" data-es-placeholder="Mensaje" data-en-placeholder="Message" rows="5" required></textarea>
             </div>
             <button type="submit" class="btn-contact btn-glass"><span data-es="Enviar mensaje" data-en="Send Message">Enviar mensaje</span></button>
           </form>
@@ -343,8 +348,8 @@
             <div class="contact-info-icon">
               <i data-lucide="message-circle"></i>
             </div>
-            <h3 class="contact-info-title">Hablemos</h3>
-            <p class="contact-info-text">
+            <h3 class="contact-info-title" data-es="Hablemos" data-en="Let's Talk">Hablemos</h3>
+            <p class="contact-info-text" data-es="¿Tienes un proyecto en mente o simplemente quieres saludar? Estoy disponible y respondo a la brevedad." data-en="Have a project in mind or just want to say hello? I'm available and will respond promptly.">
               ¿Tienes un proyecto en mente o simplemente quieres saludar?
               Estoy disponible y respondo a la brevedad.
             </p>
