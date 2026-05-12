@@ -536,26 +536,95 @@ nav a.nav-active {
   flex-shrink: 0;
 }
 
-/* CV button */
+/* ============================================================
+   LIQUID GLASS BUTTONS — shared class applied to all CTAs
+   ============================================================ */
+.btn-glass {
+  position: relative;
+  background: rgba(88, 166, 255, 0.1);
+  border: 1px solid rgba(88, 166, 255, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--second);
+  overflow: hidden;
+  transition: background 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              border-color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* animated liquid blob */
+.btn-glass::before {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(ellipse at center,
+    rgba(88, 166, 255, 0.32) 0%,
+    rgba(88, 166, 255, 0.08) 45%,
+    transparent 70%);
+  top: -25%;
+  left: -25%;
+  animation: liquidBlob 4.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* mouse-follow highlight */
+.btn-glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.18) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn-glass:hover::after { opacity: 1; }
+
+.btn-glass:hover {
+  background: rgba(88, 166, 255, 0.18);
+  border-color: rgba(88, 166, 255, 0.55);
+  color: #ffffff;
+  box-shadow: 0 0 28px rgba(88, 166, 255, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* keep button content above pseudo-elements */
+.btn-glass > * {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-glass > span,
+.btn-glass > svg,
+.btn-glass dotlottie-wc {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes liquidBlob {
+  0%,  100% { transform: translate(0%, 0%)    scale(1)    rotate(0deg); }
+  25%        { transform: translate(14%, -9%)  scale(1.14) rotate(45deg); }
+  50%        { transform: translate(-4%, 18%)  scale(0.92) rotate(90deg); }
+  75%        { transform: translate(-13%, -4%) scale(1.08) rotate(135deg); }
+}
+
+/* CV button — layout only (glass handled by .btn-glass) */
 .btn-cv {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 0.85rem 1.5rem;
-  background: var(--second);
-  color: #fff;
   font-weight: 600;
   font-size: 1rem;
   border-radius: 12px;
   text-decoration: none;
-  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 4px 20px rgba(88, 166, 255, 0.4);
-}
-
-.btn-cv:hover {
-  background: #3b8eea;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(88, 166, 255, 0.5);
+  cursor: pointer;
 }
 
 .hero-btn {
@@ -1132,22 +1201,11 @@ input:focus, textarea:focus {
 .btn-contact {
   width: 100%;
   padding: 1rem;
-  background: var(--second);
-  border: none;
   border-radius: 12px;
-  color: #fff;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 4px 18px rgba(88, 166, 255, 0.35);
   font-family: "Roboto", sans-serif;
-}
-
-.btn-contact:hover {
-  background: #3b8eea;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(88, 166, 255, 0.45);
 }
 
 #form-status {
@@ -1321,23 +1379,14 @@ input:focus, textarea:focus {
 }
 
 .modal-btn {
-  background: var(--second);
-  color: #fff;
   padding: 11px 28px;
   border-radius: 12px;
   font-size: 0.97rem;
   font-weight: 600;
-  border: none;
   cursor: pointer;
-  transition: background 0.25s ease, transform 0.2s ease;
   text-decoration: none;
   display: inline-block;
   font-family: "Roboto", sans-serif;
-}
-
-.modal-btn:hover {
-  background: #3b8eea;
-  transform: translateY(-1px);
 }
 
 .modal-btn-secondary {
@@ -1824,30 +1873,6 @@ input:focus, textarea:focus {
   background: var(--second);
 }
 
-/* ============================================================
-   CTA BUTTON RIPPLE (btn-cv & btn-contact)
-   ============================================================ */
-.btn-cv,
-.btn-contact {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-cv::after,
-.btn-contact::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.12);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
-}
-
-.btn-cv:hover::after,
-.btn-contact:hover::after {
-  transform: scaleX(1);
-}
 
 /* ============================================================
    SECTION TITLE UNDERLINE ANIMATION

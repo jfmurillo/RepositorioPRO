@@ -363,26 +363,33 @@ document.querySelectorAll("a").forEach(link => {
   });
 })();
 
-/* ======================================= MAGNETIC CTA BUTTON ======================================= */
+/* ======================================= LIQUID GLASS BUTTONS ======================================= */
 (function () {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReducedMotion) return;
 
-  document.querySelectorAll(".btn-cv, .btn-contact").forEach(btn => {
+  document.querySelectorAll(".btn-glass").forEach(btn => {
+    /* mouse-follow highlight (--mx / --my) + magnetic shift */
     btn.addEventListener("mousemove", e => {
       const r = btn.getBoundingClientRect();
-      const x = (e.clientX - r.left - r.width  / 2) * 0.25;
-      const y = (e.clientY - r.top  - r.height / 2) * 0.25;
-      btn.style.transform = `translate(${x}px, ${y}px) translateY(-3px)`;
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top)  / r.height;
+      btn.style.setProperty("--mx", `${px * 100}%`);
+      btn.style.setProperty("--my", `${py * 100}%`);
+
+      if (!prefersReducedMotion) {
+        const x = (px - 0.5) * r.width  * 0.25;
+        const y = (py - 0.5) * r.height * 0.25;
+        btn.style.transform = `translate(${x}px, ${y}px) translateY(-2px)`;
+      }
     });
 
     btn.addEventListener("mouseleave", () => {
       btn.style.transform = "";
-      btn.style.transition = "transform 0.45s cubic-bezier(0.16,1,0.3,1), background 0.25s ease, box-shadow 0.25s ease";
+      btn.style.transition = "transform 0.45s cubic-bezier(0.16,1,0.3,1), background 0.4s, border-color 0.4s, color 0.4s, box-shadow 0.4s";
     });
 
     btn.addEventListener("mouseenter", () => {
-      btn.style.transition = "transform 0.12s ease, background 0.25s ease, box-shadow 0.25s ease";
+      btn.style.transition = "transform 0.12s ease, background 0.4s, border-color 0.4s, color 0.4s, box-shadow 0.4s";
     });
   });
 })();
