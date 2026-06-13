@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>J-Computer Engineering</title>
+  <title>Joseph Murillo — Software Developer & Data Analyst</title>
   <link rel="icon" type="image/png" href="img/IMAGOTIPO2.svg" />
-  <meta property="og:title" content="J-Computer Engineering" />
+  <meta property="og:title" content="Joseph Murillo — Software Developer & Data Analyst" />
   <meta property="og:description" content="Portafolio de Joseph Murillo — Software Developer & Data Analyst." />
   <meta property="og:image" content="https://jfmurillo.github.io/RepositorioPRO/img/IMAGOTIPO2.svg" />
   <meta property="og:url" content="https://jfmurillo.github.io/RepositorioPRO/" />
@@ -13,22 +13,25 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
   <script>(function(){var t=localStorage.getItem('portfolio-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
 
 <body>
 
-  <!-- ANIMATED MESH BACKGROUND -->
+  <a class="skip-link" href="#main" data-es="Saltar al contenido" data-en="Skip to content">Saltar al contenido</a>
+
+  <!-- AMBIENT BACKGROUND GLOW (single, static) -->
   <div class="mesh-bg" aria-hidden="true">
     <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
   </div>
 
   <!-- HEADER -->
   <header class="site-header">
-    <img src="img/IMAGOTIPO2.svg" class="navbar-logo" alt="logo">
+    <a href="#hero" class="navbar-logo-link" aria-label="Joseph Murillo — inicio">
+      <img src="img/IMAGOTIPO2.svg" class="navbar-logo" alt="Joseph Murillo · J Engineering">
+    </a>
     <nav>
       <a href="#hero" data-es="Inicio" data-en="Home">Inicio</a>
       <a href="#skills" data-es="Habilidades" data-en="Skills">Habilidades</a>
@@ -46,57 +49,38 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- HERO -->
     <section id="hero" class="hero-section parallax">
-
-      <!-- Floating geometric background shapes -->
-      <div class="shapes-container" aria-hidden="true">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
-        <div class="shape shape-5"></div>
-        <div class="shape shape-6"></div>
-      </div>
 
       <div class="hero-container">
 
         <div class="hero-eyebrow">
           <span class="eyebrow-dot"></span>
-          <span data-es="J Engineering" data-en="J Engineering">J Engineering</span>
+          <span data-es="Joseph Murillo · J Engineering" data-en="Joseph Murillo · J Engineering">Joseph Murillo · J Engineering</span>
         </div>
 
         <h1 class="hero-title">
-          <span data-es="Tú imaginas," data-en="You Imagine,">You Imagine,</span><br>
-          <span class="hero-accent" data-es="nosotros lo construimos." data-en="We Build It.">We Build It.</span>
+          <span data-es="Convierto ideas en" data-en="I turn ideas into">Convierto ideas en</span><br>
+          <span class="hero-accent" data-es="software que funciona." data-en="software that works.">software que funciona.</span>
         </h1>
 
-        <p class="hero-tagline" data-es="Soluciones digitales que impactan." data-en="Turning ideas into powerful digital experiences.">Soluciones digitales que impactan.</p>
+        <p class="hero-tagline" data-es="Software Developer &amp; Data Analyst — del frontend a los datos, con foco en resultados." data-en="Software Developer &amp; Data Analyst — from frontend to data, focused on results.">Software Developer &amp; Data Analyst — del frontend a los datos, con foco en resultados.</p>
 
         <div class="hero-badges">
-          <span class="hero-badge">#Software Developer</span>
-          <span class="hero-badge">#Data Analyst</span>
-          <span class="hero-badge">#Web Developer</span>
+          <span class="hero-badge">Front-End</span>
+          <span class="hero-badge">Back-End</span>
+          <span class="hero-badge">Data &amp; APIs</span>
         </div>
 
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <span class="stat-number" data-count="4" data-suffix="+">4+</span>
-            <span class="stat-label" data-es="Años Exp." data-en="Yrs. Exp.">Años Exp.</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="hero-stat">
-            <span class="stat-number" data-count="10" data-suffix="+">10+</span>
-            <span class="stat-label" data-es="Proyectos" data-en="Projects">Proyectos</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="hero-stat">
-            <span class="stat-number" data-count="3" data-suffix="">3</span>
-            <span class="stat-label" data-es="Certificaciones" data-en="Certifications">Certificaciones</span>
-          </div>
-        </div>
+        <p class="hero-meta">
+          <span data-es="4+ años de experiencia" data-en="4+ years of experience">4+ años de experiencia</span>
+          <span class="hero-meta-sep">·</span>
+          <span>Costa Rica</span>
+          <span class="hero-meta-sep">·</span>
+          <span class="hero-available" data-es="Disponible para proyectos" data-en="Available for work">Disponible para proyectos</span>
+        </p>
 
         <a href="files/JosephMurillo_CV2025.pdf" download class="btn-cv btn-glass hero-btn">
           <dotlottie-wc
@@ -121,31 +105,40 @@
           <div class="divider-line"></div>
           <div class="divider-line"></div>
         </div>
-        <div class="skills-grid">
+        <div class="skills-list">
 
-          <div class="skill-box">
-            <div class="skill-box-icon">
+          <article class="skill-area">
+            <div class="skill-area-head">
               <i data-lucide="monitor"></i>
+              <h3 data-es="Front-End" data-en="Front-End">Front-End</h3>
             </div>
-            <h3>Desarrollo Front-End</h3>
-            <p>HTML5, CSS3, JavaScript, TypeScript, React, Bootstrap, Tailwind CSS</p>
-          </div>
+            <ul class="skill-stack">
+              <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>TypeScript</li>
+              <li>React</li><li>Tailwind CSS</li><li>Bootstrap</li>
+            </ul>
+          </article>
 
-          <div class="skill-box">
-            <div class="skill-box-icon">
+          <article class="skill-area">
+            <div class="skill-area-head">
               <i data-lucide="server"></i>
+              <h3 data-es="Back-End" data-en="Back-End">Back-End</h3>
             </div>
-            <h3>Desarrollo Back-End</h3>
-            <p>PHP, MySQL, PostgreSQL, Node.js, Express, Angular, C#</p>
-          </div>
+            <ul class="skill-stack">
+              <li>C#</li><li>Node.js</li><li>Express</li><li>PHP</li>
+              <li>PostgreSQL</li><li>MySQL</li><li>Angular</li>
+            </ul>
+          </article>
 
-          <div class="skill-box">
-            <div class="skill-box-icon">
+          <article class="skill-area">
+            <div class="skill-area-head">
               <i data-lucide="plug"></i>
+              <h3 data-es="Datos &amp; APIs" data-en="Data &amp; APIs">Datos &amp; APIs</h3>
             </div>
-            <h3>Integración de APIs</h3>
-            <p>REST APIs, JSON, Fetch API, Axios, Postman, OAuth 2.0</p>
-          </div>
+            <ul class="skill-stack">
+              <li>REST APIs</li><li>JSON</li><li>Fetch</li><li>Axios</li>
+              <li>OAuth 2.0</li><li>Postman</li>
+            </ul>
+          </article>
 
         </div>
       </div>
@@ -153,10 +146,10 @@
 
     <!-- PROYECTOS -->
     <section id="projects" class="section projects-section">
-      <h2 class="section-title" data-es="Proyectos" data-en="Projects">Proyectos</h2>
-      <p class="section-description" data-es="Algunos de los proyectos más relevantes que he desarrollado, aplicando buenas prácticas, optimización de procesos y experiencia real en producción." data-en="Some of the most relevant projects I have built, applying best practices, process optimization, and real production experience.">
-        Algunos de los proyectos más relevantes que he desarrollado,
-        aplicando buenas prácticas, optimización de procesos y experiencia real en producción.
+      <h2 class="section-title" data-es="Proyectos Destacados" data-en="Featured Projects">Proyectos Destacados</h2>
+      <p class="section-description" data-es="Proyectos reales en producción — diseñados y desarrollados de principio a fin. Explóralos en vivo o revisa el código fuente." data-en="Real projects live in production — designed and built end to end. Explore them live or browse the source code.">
+        Proyectos reales en producción — diseñados y desarrollados de principio a fin.
+        Explóralos en vivo o revisa el código fuente.
       </p>
       <div class="divider-custom">
         <div class="divider-line"></div>
@@ -164,114 +157,96 @@
       </div>
       <div class="projects-grid">
 
-        <!-- 01: SIMECID -->
-        <article class="project-card" onclick="openModal('modal-simecid')">
-          <div class="card-icon-wrapper">
-            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <polyline points="2,16 7,16 10,8 14,24 18,12 22,20 25,16 30,16"
-                stroke="#58a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">SIMECID</h3>
-            <p class="card-desc" data-es="Plataforma web para gestión de citas médicas con backend en C# y frontend interactivo." data-en="Web platform for medical appointment management with C# backend and interactive frontend.">Plataforma web para gestión de citas médicas con backend en C# y frontend interactivo.</p>
-            <div class="tech-tags">
-              <span class="tech-tag">C#</span>
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">JavaScript</span>
+        <!-- 01: FLOWTICA MEDIA -->
+        <article class="project-card featured">
+          <div class="project-preview preview-flowtica" aria-hidden="true">
+            <div class="browser-bar">
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-url">flowticamedia.com</span>
+            </div>
+            <div class="preview-canvas">
+              <img src="img/flowtica.png" class="preview-shot" alt="Captura del sitio Flowtica Media" loading="lazy">
             </div>
           </div>
-          <div class="card-footer">
-            <div class="card-number">01</div>
-            <span class="card-link">
-              <span data-es="Ver Proyecto" data-en="View Project">Ver Proyecto</span>
-              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 7h12M8 3l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
+          <div class="project-body">
+            <div class="project-head">
+              <h3 class="card-title">Flowtica Media</h3>
+              <span class="project-status">
+                <span class="status-check" aria-hidden="true">
+                  <svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5l3 3 6-6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span data-es="Completado" data-en="Completed">Completado</span>
+              </span>
+            </div>
+            <p class="card-desc" data-es="Sitio de marketing bilingüe (EN/ES) para una firma de media buying y consultoría de crecimiento. Animaciones con Framer Motion, modo claro/oscuro, formulario de contacto e integración con Calendly." data-en="Bilingual (EN/ES) marketing site for a media buying & growth consulting firm. Framer Motion animations, light/dark mode, contact form, and Calendly integration.">
+              Sitio de marketing bilingüe (EN/ES) para una firma de media buying y consultoría de
+              crecimiento. Animaciones con Framer Motion, modo claro/oscuro y formulario de contacto.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">React 19</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Vite</span>
+              <span class="tech-tag">Framer Motion</span>
+              <span class="tech-tag">i18next</span>
+            </div>
+            <div class="project-links">
+              <a href="https://flowticamedia.com" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">
+                <i data-lucide="external-link"></i>
+                <span data-es="Ver sitio" data-en="Live site">Ver sitio</span>
+              </a>
+              <a href="https://github.com/jfmurillo/Flowtica" target="_blank" rel="noopener" class="proj-btn proj-btn-ghost">
+                <svg class="brand-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 24 12.6C24 5.9 18.6.5 12 .5z"/></svg>
+                <span data-es="Código" data-en="Code">Código</span>
+              </a>
+            </div>
           </div>
         </article>
 
-        <!-- 02: LINKED -->
-        <article class="project-card" onclick="openModal('modal-linked')">
-          <div class="card-icon-wrapper">
-            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="4" y="12" width="24" height="16" rx="3" stroke="#58a6ff" stroke-width="2"/>
-              <path d="M11 12V9a5 5 0 0 1 10 0v3" stroke="#58a6ff" stroke-width="2"/>
-              <line x1="16" y1="17" x2="16" y2="23" stroke="#58a6ff" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Linked</h3>
-            <p class="card-desc" data-es="Portal de empleo con registro de usuarios, perfiles y postulaciones en tiempo real." data-en="Job portal with user registration, profiles, and real-time applications.">Portal de empleo con registro de usuarios, perfiles y postulaciones en tiempo real.</p>
-            <div class="tech-tags">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">JavaScript</span>
+        <!-- 02: ATELIER -->
+        <article class="project-card featured">
+          <div class="project-preview preview-atelier" aria-hidden="true">
+            <div class="browser-bar">
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-url">atelier-theta-gilt.vercel.app</span>
+            </div>
+            <div class="preview-canvas">
+              <img src="img/atelier.png" class="preview-shot" alt="Captura del sitio Atelier de Costura Belén" loading="lazy">
             </div>
           </div>
-          <div class="card-footer">
-            <div class="card-number">02</div>
-            <span class="card-link">
-              <span data-es="Ver Proyecto" data-en="View Project">Ver Proyecto</span>
-              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 7h12M8 3l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </article>
-
-        <!-- 03: HOTEL MANAGEMENT -->
-        <article class="project-card" onclick="openModal('modal-hotel')">
-          <div class="card-icon-wrapper">
-            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="12" y="2" width="8" height="5" rx="1" stroke="#58a6ff" stroke-width="2"/>
-              <rect x="4" y="7" width="24" height="21" rx="2" stroke="#58a6ff" stroke-width="2"/>
-              <line x1="16" y1="7" x2="16" y2="28" stroke="#58a6ff" stroke-width="2"/>
-              <rect x="7" y="11" width="4" height="4" rx="1" fill="rgba(88,166,255,0.45)"/>
-              <rect x="21" y="11" width="4" height="4" rx="1" fill="rgba(88,166,255,0.45)"/>
-              <rect x="7" y="19" width="4" height="4" rx="1" fill="rgba(88,166,255,0.45)"/>
-              <rect x="21" y="19" width="4" height="4" rx="1" fill="rgba(88,166,255,0.45)"/>
-            </svg>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Hotel Management</h3>
-            <p class="card-desc" data-es="App de escritorio para gestión hotelera: reservas, check-in, clientes y reportes." data-en="Desktop app for hotel management: reservations, check-in, guests, and reports.">App de escritorio para gestión hotelera: reservas, check-in, clientes y reportes.</p>
-            <div class="tech-tags">
-              <span class="tech-tag">Java</span>
-              <span class="tech-tag">JavaFX</span>
+          <div class="project-body">
+            <div class="project-head">
+              <h3 class="card-title">Atelier — Costura Belén</h3>
+              <span class="project-status">
+                <span class="status-check" aria-hidden="true">
+                  <svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5l3 3 6-6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span data-es="Completado" data-en="Completed">Completado</span>
+              </span>
             </div>
-          </div>
-          <div class="card-footer">
-            <div class="card-number">03</div>
-            <span class="card-link">
-              <span data-es="Ver Proyecto" data-en="View Project">Ver Proyecto</span>
-              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 7h12M8 3l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </article>
-
-        <!-- 04: FLOWTICA MEDIA -->
-        <article class="project-card" onclick="openModal('modal-flowtica')">
-          <div class="card-icon-wrapper">
-            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <polygon points="18,3 7,18 15,18 14,29 25,14 17,14"
-                stroke="#58a6ff" stroke-width="2" stroke-linejoin="round"
-                fill="rgba(88,166,255,0.15)"/>
-            </svg>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Flowtica Media</h3>
-            <p class="card-desc" data-es="Sitio web para agencia de producción digital: servicios, portafolio y contacto." data-en="Website for a digital production agency: services, portfolio, and contact.">Sitio web para agencia de producción digital: servicios, portafolio y contacto.</p>
+            <p class="card-desc" data-es="Sitio web para un taller de confección y arreglos de ropa con más de 20 años de experiencia. Incluye servicios, testimonios, preguntas frecuentes y contacto directo por WhatsApp. Desplegado en Vercel." data-en="Website for a tailoring & clothing-alterations workshop with 20+ years of experience. Includes services, testimonials, FAQs, and direct WhatsApp contact. Deployed on Vercel.">
+              Sitio web para un taller de confección y arreglos de ropa con más de 20 años de
+              experiencia. Servicios, testimonios, preguntas frecuentes y contacto por WhatsApp.
+            </p>
             <div class="tech-tags">
               <span class="tech-tag">HTML5</span>
               <span class="tech-tag">CSS3</span>
               <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Vercel</span>
             </div>
-          </div>
-          <div class="card-footer">
-            <div class="card-number">04</div>
-            <span class="card-link">
-              <span data-es="Ver Proyecto" data-en="View Project">Ver Proyecto</span>
-              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 7h12M8 3l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
+            <div class="project-links">
+              <a href="https://atelier-theta-gilt.vercel.app/" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">
+                <i data-lucide="external-link"></i>
+                <span data-es="Ver sitio" data-en="Live site">Ver sitio</span>
+              </a>
+              <a href="https://github.com/jfmurillo/Atelier" target="_blank" rel="noopener" class="proj-btn proj-btn-ghost">
+                <svg class="brand-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 24 12.6C24 5.9 18.6.5 12 .5z"/></svg>
+                <span data-es="Código" data-en="Code">Código</span>
+              </a>
+            </div>
           </div>
         </article>
 
@@ -285,33 +260,50 @@
         Certificaciones que avalan mis conocimientos técnicos, metodologías y competencias
         dentro del área del desarrollo de software.
       </p>
-      <div class="certs-grid scroll-fade">
+      <ul class="certs-list scroll-fade">
 
-        <div class="cert-box">
-          <div class="cert-icon-wrap">
-            <i data-lucide="layers"></i>
+        <li class="cert-row">
+          <span class="cert-row-icon"><i data-lucide="sparkles"></i></span>
+          <div class="cert-row-body">
+            <h3>Google AI Essentials</h3>
+            <span class="cert-issuer">Google</span>
           </div>
-          <h3>Scrum Fundamentals Certified</h3>
-          <p>Certiprof — Enero 2024</p>
-        </div>
-
-        <div class="cert-box">
-          <div class="cert-icon-wrap">
-            <i data-lucide="graduation-cap"></i>
+          <div class="cert-row-meta">
+            <a class="cert-verify" href="https://www.credly.com/badges/e128ac1f-1a90-4dc7-9429-f3ddcc82752d/linked_in_profile" target="_blank" rel="noopener">
+              <i data-lucide="badge-check"></i>
+              <span data-es="Ver credencial" data-en="View credential">Ver credencial</span>
+            </a>
           </div>
-          <h3>Técnico en Desarrollo de Software</h3>
-          <p>Universidad CENFOTEC — Julio 2024</p>
-        </div>
+        </li>
 
-        <div class="cert-box">
-          <div class="cert-icon-wrap">
-            <i data-lucide="cloud"></i>
+        <li class="cert-row">
+          <span class="cert-row-icon"><i data-lucide="cloud"></i></span>
+          <div class="cert-row-body">
+            <h3>AWS Technical Essentials</h3>
+            <span class="cert-issuer">Amazon Web Services</span>
           </div>
-          <h3>AWS Technical Essentials</h3>
-          <p>Amazon Web Services (AWS) — Noviembre 2025</p>
-        </div>
+          <time class="cert-row-meta">Nov 2025</time>
+        </li>
 
-      </div>
+        <li class="cert-row">
+          <span class="cert-row-icon"><i data-lucide="graduation-cap"></i></span>
+          <div class="cert-row-body">
+            <h3 data-es="Técnico en Desarrollo de Software" data-en="Software Development Technician">Técnico en Desarrollo de Software</h3>
+            <span class="cert-issuer">Universidad CENFOTEC</span>
+          </div>
+          <time class="cert-row-meta">Jul 2024</time>
+        </li>
+
+        <li class="cert-row">
+          <span class="cert-row-icon"><i data-lucide="layers"></i></span>
+          <div class="cert-row-body">
+            <h3>Scrum Fundamentals Certified</h3>
+            <span class="cert-issuer">Certiprof</span>
+          </div>
+          <time class="cert-row-meta" data-es="Ene 2024" data-en="Jan 2024">Ene 2024</time>
+        </li>
+
+      </ul>
     </section>
 
     <!-- CONTACTO -->
@@ -328,19 +320,34 @@
       <div class="contact-inner">
 
         <div class="contact-form-col">
-          <form id="contact-form" class="contact-form">
+          <form id="contact-form" class="contact-form" novalidate>
             <div class="form-group">
-              <input type="text" id="name" placeholder="Nombre" data-es-placeholder="Nombre" data-en-placeholder="Name" required>
+              <label class="field-label" for="name" data-es="Nombre" data-en="Name">Nombre</label>
+              <input type="text" id="name" name="name" autocomplete="name" maxlength="80"
+                     aria-describedby="name-error" required>
+              <span class="field-error" id="name-error" aria-live="polite"></span>
             </div>
             <div class="form-group">
-              <input type="email" id="email" placeholder="Email" data-es-placeholder="Email" data-en-placeholder="Email" required>
+              <label class="field-label" for="email" data-es="Correo" data-en="Email">Correo</label>
+              <input type="email" id="email" name="email" autocomplete="email" maxlength="120"
+                     aria-describedby="email-error" required>
+              <span class="field-error" id="email-error" aria-live="polite"></span>
             </div>
             <div class="form-group">
-              <textarea id="message" placeholder="Mensaje" data-es-placeholder="Mensaje" data-en-placeholder="Message" rows="5" required></textarea>
+              <label class="field-label" for="message" data-es="Mensaje" data-en="Message">Mensaje</label>
+              <textarea id="message" name="message" rows="5" maxlength="1200"
+                        aria-describedby="message-error message-count" required></textarea>
+              <div class="field-meta">
+                <span class="field-error" id="message-error" aria-live="polite"></span>
+                <span class="field-count" id="message-count" aria-hidden="true">0 / 1200</span>
+              </div>
             </div>
-            <button type="submit" class="btn-contact btn-glass"><span data-es="Enviar mensaje" data-en="Send Message">Enviar mensaje</span></button>
+            <button type="submit" class="btn-contact" id="contact-submit">
+              <span class="btn-spinner" aria-hidden="true"></span>
+              <span class="btn-label" data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</span>
+            </button>
+            <p id="form-status" role="status" aria-live="polite"></p>
           </form>
-          <p id="form-status"></p>
         </div>
 
         <div class="contact-info-col">
@@ -355,10 +362,10 @@
             </p>
             <div class="contact-social">
               <a href="https://github.com/jfmurillo" target="_blank" rel="noopener">
-                <i data-lucide="github"></i> GitHub
+                <svg class="brand-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 24 12.6C24 5.9 18.6.5 12 .5z"/></svg> GitHub
               </a>
               <a href="https://www.linkedin.com/in/joseph-murillo" target="_blank" rel="noopener">
-                <i data-lucide="linkedin"></i> LinkedIn
+                <svg class="brand-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn
               </a>
               <a href="mailto:josephmurillo1621@gmail.com">
                 <i data-lucide="mail"></i> Email
@@ -372,119 +379,6 @@
 
   </main>
 
-
-  <!-- ===========================
-       MODALS
-  ============================ -->
-
-  <!-- SIMECID -->
-  <div id="modal-simecid" class="modal-freelancer">
-    <div class="modal-dialog">
-      <span class="modal-close" onclick="closeModal('modal-simecid')">&times;</span>
-      <h2 class="modal-title">SIMECID</h2>
-      <div class="divider-custom">
-        <div class="divider-line"></div>
-        <div class="divider-line"></div>
-      </div>
-      <img src="img/estetoscopio.png" class="modal-img" alt="SIMECID">
-      <p class="modal-description">
-        Plataforma web para consulta y reserva de citas médicas. Permite a pacientes agendar
-        citas y a médicos gestionar su agenda. Backend en <b>C#</b> y frontend en
-        <b>HTML, CSS y JavaScript</b>.
-      </p>
-      <div class="tech-tags" style="justify-content:center; margin-bottom:20px;">
-        <span class="tech-tag">C#</span>
-        <span class="tech-tag">HTML5</span>
-        <span class="tech-tag">CSS3</span>
-        <span class="tech-tag">JavaScript</span>
-        <span class="tech-tag">REST API</span>
-      </div>
-      <div class="modal-actions">
-        <button class="modal-btn btn-glass" onclick="closeModal('modal-simecid')"><span data-es="Cerrar" data-en="Close">Cerrar</span></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- LINKED -->
-  <div id="modal-linked" class="modal-freelancer">
-    <div class="modal-dialog">
-      <span class="modal-close" onclick="closeModal('modal-linked')">&times;</span>
-      <h2 class="modal-title">Linked</h2>
-      <div class="divider-custom">
-        <div class="divider-line"></div>
-        <div class="divider-line"></div>
-      </div>
-      <img src="img/Imagen_Computadora.jpeg" class="modal-img" alt="Linked">
-      <p class="modal-description">
-        Portal web para búsqueda y publicación de empleos. Los usuarios pueden registrarse,
-        crear perfiles y postularse a ofertas. Construido con <b>HTML, CSS y JavaScript</b>.
-      </p>
-      <div class="tech-tags" style="justify-content:center; margin-bottom:20px;">
-        <span class="tech-tag">HTML5</span>
-        <span class="tech-tag">CSS3</span>
-        <span class="tech-tag">JavaScript</span>
-      </div>
-      <div class="modal-actions">
-        <button class="modal-btn btn-glass" onclick="closeModal('modal-linked')"><span data-es="Cerrar" data-en="Close">Cerrar</span></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- HOTEL -->
-  <div id="modal-hotel" class="modal-freelancer">
-    <div class="modal-dialog">
-      <span class="modal-close" onclick="closeModal('modal-hotel')">&times;</span>
-      <h2 class="modal-title">Hotel Management</h2>
-      <div class="divider-custom">
-        <div class="divider-line"></div>
-        <div class="divider-line"></div>
-      </div>
-      <img src="img/legacyhotel.webp" class="modal-img" alt="Hotel Management">
-      <p class="modal-description">
-        Aplicación de escritorio para gestión hotelera: reservas, check-in, clientes y
-        reportes. Desarrollada con <b>Java y JavaFX</b> con interfaz gráfica moderna.
-      </p>
-      <div class="tech-tags" style="justify-content:center; margin-bottom:20px;">
-        <span class="tech-tag">Java</span>
-        <span class="tech-tag">JavaFX</span>
-      </div>
-      <div class="modal-actions">
-        <button class="modal-btn btn-glass" onclick="closeModal('modal-hotel')"><span data-es="Cerrar" data-en="Close">Cerrar</span></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- FLOWTICA -->
-  <div id="modal-flowtica" class="modal-freelancer">
-    <div class="modal-dialog">
-      <span class="modal-close" onclick="closeModal('modal-flowtica')">&times;</span>
-      <h2 class="modal-title">Flowtica Media</h2>
-      <div class="divider-custom">
-        <div class="divider-line"></div>
-        <div class="divider-line"></div>
-      </div>
-      <img src="img/flowtica.png" class="modal-img" alt="Flowtica Media"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-      <div class="flowtica-placeholder" style="display:none; border-radius:12px; margin-bottom:20px;">
-        Flowtica Media
-      </div>
-      <p class="modal-description">
-        Sitio web para <b>Flowtica Media</b>, agencia de producción y marketing digital.
-        Incluye presentación de servicios, portafolio de trabajos y formulario de contacto.
-        Diseñado y desarrollado de principio a fin.
-      </p>
-      <div class="tech-tags" style="justify-content:center; margin-bottom:20px;">
-        <span class="tech-tag">HTML5</span>
-        <span class="tech-tag">CSS3</span>
-        <span class="tech-tag">JavaScript</span>
-      </div>
-      <div class="modal-actions">
-        <a href="https://flowticamedia.com" target="_blank" rel="noopener"
-           class="modal-btn btn-glass"><span data-es="Ver Sitio en Vivo" data-en="View Live Site">Ver Sitio en Vivo</span></a>
-        <button class="modal-btn-secondary" onclick="closeModal('modal-flowtica')"><span data-es="Cerrar" data-en="Close">Cerrar</span></button>
-      </div>
-    </div>
-  </div>
 
   <!-- WHATSAPP BTN -->
   <a href="https://wa.me/50687236241?text=Hola%20Joseph,%20vi%20tu%20portafolio%20y%20quiero%20contactarte!"
@@ -500,17 +394,18 @@
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-col">
-        <span class="footer-brand">J-Computer Engineering</span>
-        <p class="footer-copy">© <span id="year"></span> Joseph Murillo</p>
+        <span class="footer-brand">Joseph Murillo</span>
+        <p class="footer-copy" data-es="Software Developer &amp; Data Analyst" data-en="Software Developer &amp; Data Analyst">Software Developer &amp; Data Analyst</p>
+        <p class="footer-copy">© <span id="year"></span> · J Engineering</p>
       </div>
       <div class="footer-col">
-        <span class="footer-brand">Redes</span>
+        <span class="footer-brand" data-es="Redes" data-en="Connect">Redes</span>
         <div class="social-links">
           <a href="https://github.com/jfmurillo" target="_blank" rel="noopener">
-            <i data-lucide="github"></i> GitHub
+            <svg class="brand-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 24 12.6C24 5.9 18.6.5 12 .5z"/></svg> GitHub
           </a>
           <a href="https://www.linkedin.com/in/joseph-murillo" target="_blank" rel="noopener">
-            <i data-lucide="linkedin"></i> LinkedIn
+            <svg class="brand-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn
           </a>
           <a href="mailto:josephmurillo1621@gmail.com">
             <i data-lucide="mail"></i> Email
@@ -518,32 +413,12 @@
         </div>
       </div>
     </div>
-    <div id="google_translate_element" class="google-translate-box"></div>
   </footer>
 
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'es',
-        includedLanguages: 'es,en',
-        autoDisplay: false,
-        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-      }, 'google_translate_element');
-    }
-  </script>
-
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
   <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js" type="module"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>lucide.createIcons();</script>
-
-  <div id="page-transition">
-    <div class="loader"></div>
-  </div>
-
-  <!-- SCROLL PROGRESS BAR -->
-  <div id="scroll-progress" aria-hidden="true"></div>
 
 </body>
 </html>
