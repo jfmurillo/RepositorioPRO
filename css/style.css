@@ -1028,12 +1028,21 @@ nav a.nav-active {
 
 .cert-verify:hover { gap: 9px; }
 
+/* stack a date + its credential link in the right meta column */
+.cert-row-meta-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
 @media (max-width: 540px) {
   .cert-row {
     grid-template-columns: auto 1fr;
     row-gap: var(--space-xs);
   }
   .cert-row-meta { grid-column: 2; text-align: left; }
+  .cert-row-meta-stack { align-items: flex-start; }
 }
 
 /* ============================================================
