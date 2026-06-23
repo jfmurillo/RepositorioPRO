@@ -701,6 +701,13 @@ nav a.nav-active {
   padding: 0 8px;
 }
 
+/* center a lone trailing card so an odd count doesn't leave a gap */
+.projects-grid > .project-card:nth-child(odd):last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(50% - 10px);
+}
+
 .project-card {
   background: var(--surface);
   border: 1px solid var(--surface-border);
