@@ -33,9 +33,8 @@
       <img src="img/IMAGOTIPO2.svg" class="navbar-logo" alt="Joseph Murillo · J Engineering">
     </a>
     <nav>
-      <a href="#hero" data-es="Inicio" data-en="Home">Inicio</a>
-      <a href="#skills" data-es="Habilidades" data-en="Skills">Habilidades</a>
-      <a href="#projects" data-es="Proyectos" data-en="Projects">Proyectos</a>
+      <a href="#hero" class="nav-active" data-es="Trabajo" data-en="Work">Trabajo</a>
+      <a href="about.html" data-es="Sobre mí" data-en="About">Sobre mí</a>
       <a href="#certifications" data-es="Certificaciones" data-en="Certifications">Certificaciones</a>
       <a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a>
     </nav>
@@ -62,8 +61,8 @@
         </div>
 
         <h1 class="hero-title">
-          <span data-es="Convierto ideas en" data-en="I turn ideas into">Convierto ideas en</span><br>
-          <span class="hero-accent" data-es="software que funciona." data-en="software that works.">software que funciona.</span>
+          <span data-es="Hola. Soy Joseph." data-en="Hi. I'm Joseph.">Hola. Soy Joseph.</span><br>
+          <span class="hero-accent" data-es="Un Ingeniero." data-en="An Engineer.">Un Ingeniero.</span><span class="hero-spark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c1.1 7 4.9 10.9 12 12-7.1 1.1-10.9 5-12 12-1.1-7-4.9-10.9-12-12C7.1 10.9 10.9 7 12 0Z"/></svg></span>
         </h1>
 
         <p class="hero-tagline" data-es="Software Developer &amp; Data Analyst — del frontend a los datos, con foco en resultados." data-en="Software Developer &amp; Data Analyst — from frontend to data, focused on results.">Software Developer &amp; Data Analyst — del frontend a los datos, con foco en resultados.</p>
@@ -83,64 +82,12 @@
         </p>
 
         <a href="files/JosephMurillo_CV2025.pdf" download class="btn-cv btn-glass hero-btn">
-          <dotlottie-wc
-            src="https://lottie.host/3f29e15f-524d-4e99-bed0-8b1fa461ad27/Y4dyYTplmn.json"
-            class="cv-lottie" autoplay loop>
-          </dotlottie-wc>
+          <span class="cv-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </span>
           <span data-es="Descargar CV" data-en="Download CV">Descargar CV</span>
         </a>
 
-      </div>
-    </section>
-
-    <!-- HABILIDADES -->
-    <section id="skills" class="section skills-section">
-      <div class="container skills-container">
-        <h2 class="section-title" data-es="Habilidades" data-en="Skills">Habilidades</h2>
-        <p class="section-description" data-es="Un conjunto de habilidades técnicas orientadas al desarrollo moderno, desde interfaces intuitivas hasta arquitecturas sólidas en el backend." data-en="A technical skill set focused on modern development — from intuitive interfaces to solid backend architectures.">
-          Un conjunto de habilidades técnicas orientadas al desarrollo moderno,
-          desde interfaces intuitivas hasta arquitecturas sólidas en el backend.
-        </p>
-        <div class="divider-custom">
-          <div class="divider-line"></div>
-          <div class="divider-line"></div>
-        </div>
-        <div class="skills-list">
-
-          <article class="skill-area">
-            <div class="skill-area-head">
-              <i data-lucide="monitor"></i>
-              <h3 data-es="Front-End" data-en="Front-End">Front-End</h3>
-            </div>
-            <ul class="skill-stack">
-              <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>TypeScript</li>
-              <li>React</li><li>Tailwind CSS</li><li>Bootstrap</li>
-            </ul>
-          </article>
-
-          <article class="skill-area">
-            <div class="skill-area-head">
-              <i data-lucide="server"></i>
-              <h3 data-es="Back-End" data-en="Back-End">Back-End</h3>
-            </div>
-            <ul class="skill-stack">
-              <li>C#</li><li>Node.js</li><li>Express</li><li>PHP</li>
-              <li>PostgreSQL</li><li>MySQL</li><li>Angular</li>
-            </ul>
-          </article>
-
-          <article class="skill-area">
-            <div class="skill-area-head">
-              <i data-lucide="plug"></i>
-              <h3 data-es="Datos &amp; APIs" data-en="Data &amp; APIs">Datos &amp; APIs</h3>
-            </div>
-            <ul class="skill-stack">
-              <li>REST APIs</li><li>JSON</li><li>Fetch</li><li>Axios</li>
-              <li>OAuth 2.0</li><li>Postman</li>
-            </ul>
-          </article>
-
-        </div>
       </div>
     </section>
 
@@ -434,12 +381,11 @@
 
   <!-- WHATSAPP BTN -->
   <a href="https://wa.me/50687236241?text=Hola%20Joseph,%20vi%20tu%20portafolio%20y%20quiero%20contactarte!"
-     target="_blank"
-     class="whatsapp-btn">
-    <dotlottie-wc
-      src="https://lottie.host/85c05d51-9eaa-435e-a4e9-ec0627802e5c/eV7v5mVIJT.json"
-      class="whatsapp-lottie" autoplay loop>
-    </dotlottie-wc>
+     target="_blank" rel="noopener"
+     class="whatsapp-btn" aria-label="WhatsApp">
+    <span class="whatsapp-ico" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </span>
   </a>
 
   <!-- FOOTER -->
@@ -467,8 +413,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=2"></script>
-  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js" type="module"></script>
+  <script src="js/main.js?v=3"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>lucide.createIcons();</script>
 
