@@ -154,7 +154,7 @@ h1, h2, h3, h4 {
 /* theme transitions — targeted, not global (global * transition kills perf) */
 .site-header, .skill-area, .skill-stack li, .cert-row, .project-card,
 .hero-badge, .contact-social a, .theme-toggle, .whatsapp-btn,
-input, textarea, .btn-cv, .btn-contact, nav a, .social-links a,
+input, textarea, .btn-contact, nav a, .social-links a,
 .footer-col, .site-footer {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
@@ -586,33 +586,6 @@ nav a.nav-active {
 [data-theme="light"] .btn-glass:hover {
   color: var(--brand-solid-hover);
 }
-
-/* CV button — layout only (visual handled by .btn-glass) */
-.btn-cv {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0.85rem 1.5rem;
-  font-weight: 600;
-  font-size: 1rem;
-  border-radius: 12px;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.hero-btn {
-  margin-top: 0;
-  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.75s both;
-}
-
-.cv-ico {
-  width: 20px;
-  height: 20px;
-  pointer-events: none;
-  flex-shrink: 0;
-}
-
-.cv-ico svg { width: 100%; height: 100%; display: block; }
 
 /* ============================================================
    SECTION SHARED
@@ -1605,6 +1578,13 @@ input.has-error, textarea.has-error {
 
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* undo the desktop lone-trailing-card centering — full width on phones */
+  .projects-grid > .project-card:nth-child(odd):last-child {
+    grid-column: auto;
+    justify-self: stretch;
+    width: auto;
   }
 
   .contact-inner {
