@@ -216,6 +216,29 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ===================================================================
+   WHATSAPP FAB — hide while scrolling down through body copy
+   -------------------------------------------------------------------
+   Fixed position means it can land on top of a line of text on long
+   pages (about.html) on mobile. Hiding it on downward scroll keeps it
+   clear of text the visitor is about to read; scrolling back up (or
+   resting at the top) brings it back.
+   =================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const waBtn = document.querySelector(".whatsapp-btn");
+  if (!waBtn) return;
+
+  const DIRECTION_THRESHOLD = 6;   // ignore sub-pixel jitter from layout shifts / momentum scroll
+  let lastY = window.scrollY;
+  window.addEventListener("scroll", () => {
+    const y = window.scrollY;
+    const delta = y - lastY;
+    if (Math.abs(delta) < DIRECTION_THRESHOLD) return;
+    waBtn.classList.toggle("is-hidden", delta > 0 && y > 80);
+    lastY = y;
+  }, { passive: true });
+});
+
+/* ===================================================================
    CONTACT FORM — validation, states, real submission
    -------------------------------------------------------------------
    Set FORM_ENDPOINT to a Formspree form URL (https://formspree.io/f/xxxx)

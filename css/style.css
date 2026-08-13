@@ -1347,12 +1347,21 @@ input.has-error, textarea.has-error {
   border-radius: 50%;
   background: #25d366;
   box-shadow: 0 8px 22px rgba(37, 211, 102, 0.35);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.25s ease;
 }
 
 .whatsapp-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+}
+
+/* step out of the way while scrolling down through body copy so it never
+   sits on top of a line the visitor hasn't read yet; scrolling back up
+   (or resting at the top) brings it back */
+.whatsapp-btn.is-hidden {
+  opacity: 0;
+  transform: scale(0.6) translateY(12px);
+  pointer-events: none;
 }
 
 .whatsapp-ico {
