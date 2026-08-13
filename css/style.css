@@ -1559,6 +1559,8 @@ input.has-error, textarea.has-error {
     order: 3;
     width: 100%;
     justify-content: center;
+    row-gap: 4px;
+    border-radius: 20px;   /* full pill reads as a stretched blob once links wrap to 2 lines */
   }
 
   nav a {
