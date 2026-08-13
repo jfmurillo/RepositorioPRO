@@ -1526,7 +1526,16 @@ input.has-error, textarea.has-error {
   height: 150px;
   border-radius: 50%;
   border: 3px solid var(--second);
+  object-fit: cover;
   flex-shrink: 0;
+}
+
+/* smaller variant sitting above the About hero title, not inside a .card */
+.about-avatar {
+  width: 128px;
+  height: 128px;
+  box-shadow: var(--glass-shadow);
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
 }
 
 /* ============================================================
