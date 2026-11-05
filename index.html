@@ -13,7 +13,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
   <script>(function(){var t=localStorage.getItem('portfolio-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
@@ -43,7 +43,8 @@
         <span id="lang-label">EN</span>
       </button>
       <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
-        <i data-lucide="sun"></i>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
       </button>
     </div>
   </header>
@@ -84,6 +85,24 @@
       </div>
     </section>
 
+    <!-- HERO SKILLS MARQUEE -->
+    <div class="marquee marquee-skills" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span class="marquee-item">Front-End</span><span class="marquee-spark">&#10022;</span>
+          <span class="marquee-item">Back-End</span><span class="marquee-spark">&#10022;</span>
+          <span class="marquee-item">Data</span><span class="marquee-spark">&#10022;</span>
+          <span class="marquee-item">APIs</span><span class="marquee-spark">&#10022;</span>
+        </div>
+        <div class="marquee-group">
+          <span class="marquee-item">Front-End</span><span class="marquee-spark">&#10022;</span>
+          <span class="marquee-item">Back-End</span><span class="marquee-spark">&#10022;</span>
+          <span class="marquee-item">Data</span><span class="marquee-spark">&#10022;</span>
+          <span class="marquee-item">APIs</span><span class="marquee-spark">&#10022;</span>
+        </div>
+      </div>
+    </div>
+
     <!-- PROYECTOS -->
     <section id="projects" class="section projects-section">
       <h2 class="section-title" data-es="Proyectos Destacados" data-en="Featured Projects">Proyectos Destacados</h2>
@@ -107,7 +126,7 @@
               <span class="browser-url">flowticamedia.com</span>
             </div>
             <div class="preview-canvas">
-              <img src="img/flowtica.png" class="preview-shot" alt="Captura del sitio Flowtica Media" loading="lazy">
+              <img src="img/flowtica.webp" class="preview-shot" alt="Captura del sitio Flowtica Media" loading="lazy">
             </div>
           </div>
           <div class="project-body">
@@ -133,7 +152,7 @@
             </div>
             <div class="project-links">
               <a href="https://flowticamedia.com" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">
-                <i data-lucide="external-link"></i>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                 <span data-es="Ver sitio" data-en="Live site">Ver sitio</span>
               </a>
               <a href="https://github.com/jfmurillo/Flowtica" target="_blank" rel="noopener" class="proj-btn proj-btn-ghost">
@@ -154,7 +173,7 @@
               <span class="browser-url">atelier-theta-gilt.vercel.app</span>
             </div>
             <div class="preview-canvas">
-              <img src="img/atelier.png" class="preview-shot" alt="Captura del sitio Atelier de Costura Belén" loading="lazy">
+              <img src="img/atelier.webp" class="preview-shot" alt="Captura del sitio Atelier de Costura Belén" loading="lazy">
             </div>
           </div>
           <div class="project-body">
@@ -179,7 +198,7 @@
             </div>
             <div class="project-links">
               <a href="https://atelier-theta-gilt.vercel.app/" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">
-                <i data-lucide="external-link"></i>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                 <span data-es="Ver sitio" data-en="Live site">Ver sitio</span>
               </a>
               <a href="https://github.com/jfmurillo/Atelier" target="_blank" rel="noopener" class="proj-btn proj-btn-ghost">
@@ -225,7 +244,7 @@
             </div>
             <div class="project-links">
               <a href="https://finance-admin-delta.vercel.app/" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">
-                <i data-lucide="external-link"></i>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                 <span data-es="Ver sitio" data-en="Live site">Ver sitio</span>
               </a>
               <a href="https://github.com/jfmurillo/FinanceAdmin" target="_blank" rel="noopener" class="proj-btn proj-btn-ghost">
@@ -249,49 +268,49 @@
       <ul class="certs-list scroll-fade">
 
         <li class="cert-row">
-          <span class="cert-row-icon"><i data-lucide="git-branch"></i></span>
+          <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></span>
           <div class="cert-row-body">
             <h3>GitHub Foundations</h3>
             <span class="cert-issuer">DataCamp</span>
           </div>
           <div class="cert-row-meta">
             <a class="cert-verify" href="https://www.datacamp.com/completed/statement-of-accomplishment/track/1390d298585811c8302c256c213c0f4d18844147" target="_blank" rel="noopener">
-              <i data-lucide="badge-check"></i>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76z"/><path d="m9 12 2 2 4-4"/></svg>
               <span data-es="Ver credencial" data-en="View credential">Ver credencial</span>
             </a>
           </div>
         </li>
 
         <li class="cert-row">
-          <span class="cert-row-icon"><i data-lucide="database"></i></span>
+          <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg></span>
           <div class="cert-row-body">
             <h3>SQL Associate</h3>
             <span class="cert-issuer">DataCamp</span>
           </div>
           <div class="cert-row-meta">
             <a class="cert-verify" href="https://www.datacamp.com/certificate/SQA0013486373543" target="_blank" rel="noopener">
-              <i data-lucide="badge-check"></i>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76z"/><path d="m9 12 2 2 4-4"/></svg>
               <span data-es="Ver credencial" data-en="View credential">Ver credencial</span>
             </a>
           </div>
         </li>
 
         <li class="cert-row">
-          <span class="cert-row-icon"><i data-lucide="sparkles"></i></span>
+          <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4M22 5h-4M4 17v2M5 18H3"/></svg></span>
           <div class="cert-row-body">
             <h3>Google AI Essentials</h3>
             <span class="cert-issuer">Google</span>
           </div>
           <div class="cert-row-meta">
             <a class="cert-verify" href="https://www.credly.com/badges/e128ac1f-1a90-4dc7-9429-f3ddcc82752d/linked_in_profile" target="_blank" rel="noopener">
-              <i data-lucide="badge-check"></i>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76z"/><path d="m9 12 2 2 4-4"/></svg>
               <span data-es="Ver credencial" data-en="View credential">Ver credencial</span>
             </a>
           </div>
         </li>
 
         <li class="cert-row">
-          <span class="cert-row-icon"><i data-lucide="cloud"></i></span>
+          <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg></span>
           <div class="cert-row-body">
             <h3>AWS Technical Essentials</h3>
             <span class="cert-issuer">Amazon Web Services</span>
@@ -300,7 +319,7 @@
         </li>
 
         <li class="cert-row">
-          <span class="cert-row-icon"><i data-lucide="graduation-cap"></i></span>
+          <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></span>
           <div class="cert-row-body">
             <h3 data-es="Técnico en Desarrollo de Software" data-en="Software Development Technician">Técnico en Desarrollo de Software</h3>
             <span class="cert-issuer">Universidad CENFOTEC</span>
@@ -308,14 +327,14 @@
           <div class="cert-row-meta cert-row-meta-stack">
             <time>Jul 2024</time>
             <a class="cert-verify" href="https://acreditta.com/credential/e17ee7cb-0f9c-4f77-9b6c-d27718e3b352?utm_source=copy&amp;resource_type=badge&amp;resource=e17ee7cb-0f9c-4f77-9b6c-d27718e3b352" target="_blank" rel="noopener">
-              <i data-lucide="badge-check"></i>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76z"/><path d="m9 12 2 2 4-4"/></svg>
               <span data-es="Ver credencial" data-en="View credential">Ver credencial</span>
             </a>
           </div>
         </li>
 
         <li class="cert-row">
-          <span class="cert-row-icon"><i data-lucide="layers"></i></span>
+          <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span>
           <div class="cert-row-body">
             <h3>Scrum Fundamentals Certified</h3>
             <span class="cert-issuer">Certiprof</span>
@@ -373,7 +392,7 @@
         <div class="contact-info-col">
           <div class="contact-info-card">
             <div class="contact-info-icon">
-              <i data-lucide="message-circle"></i>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
             </div>
             <h3 class="contact-info-title" data-es="Hablemos" data-en="Let's Talk">Hablemos</h3>
             <p class="contact-info-text" data-es="¿Tienes un proyecto en mente o simplemente quieres saludar? Estoy disponible y respondo a la brevedad." data-en="Have a project in mind or just want to say hello? I'm available and will respond promptly.">
@@ -388,12 +407,30 @@
                 <svg class="brand-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn
               </a>
               <a href="mailto:josephmurillo1621@gmail.com">
-                <i data-lucide="mail"></i> Email
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Email
               </a>
             </div>
           </div>
         </div>
 
+      </div>
+
+      <!-- CONTACT EMAIL MARQUEE -->
+      <div class="marquee marquee-contact" aria-hidden="true">
+        <a class="marquee-track" href="mailto:josephmurillo1621@gmail.com" tabindex="-1">
+          <span class="marquee-group">
+            <span class="marquee-item">josephmurillo1621@gmail.com</span>
+            <span class="marquee-spark">&#10022;</span>
+            <span class="marquee-cta" data-es="Trabajemos juntos" data-en="Let's work together">Trabajemos juntos</span>
+            <span class="marquee-spark">&#10022;</span>
+          </span>
+          <span class="marquee-group">
+            <span class="marquee-item">josephmurillo1621@gmail.com</span>
+            <span class="marquee-spark">&#10022;</span>
+            <span class="marquee-cta" data-es="Trabajemos juntos" data-en="Let's work together">Trabajemos juntos</span>
+            <span class="marquee-spark">&#10022;</span>
+          </span>
+        </a>
       </div>
     </section>
 
@@ -427,16 +464,14 @@
             <svg class="brand-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn
           </a>
           <a href="mailto:josephmurillo1621@gmail.com">
-            <i data-lucide="mail"></i> Email
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Email
           </a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js?v=3"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>lucide.createIcons();</script>
+  <script src="js/main.js?v=4"></script>
 
 </body>
 </html>

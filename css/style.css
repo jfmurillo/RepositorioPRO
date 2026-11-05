@@ -221,7 +221,6 @@ h2 {
   border-radius: 50%;
   filter: blur(44px);
   transform: translateZ(0);
-  will-change: transform;
 }
 
 .blob-1 {
@@ -277,7 +276,6 @@ h2 {
   background: rgba(28, 46, 40, 0.82);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  will-change: transform;
   padding: 0.85rem 2rem;
   border-bottom: 1px solid var(--glass-border);
   z-index: var(--z-sticky);
@@ -392,6 +390,10 @@ nav a.nav-active {
   height: 18px;
   stroke: var(--second);
 }
+
+.theme-toggle .icon-moon { display: none; }
+[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+[data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
 /* ============================================================
    HERO SECTION
@@ -1812,6 +1814,94 @@ input.has-error, textarea.has-error {
 /* ============================================================
    REDUCED MOTION — collapse motion, keep content visible
    ============================================================ */
+/* ============================================================
+   KINETIC MARQUEE — hero skills ticker + contact email band
+   CSS-only, pine/mint palette. Two identical groups per track,
+   translated -50% for a seamless loop (no width-dependent gap).
+   ============================================================ */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  border-block: 1px solid var(--border-default);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  text-decoration: none;
+  animation: marquee-roll 34s linear infinite;
+}
+
+.marquee-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* pause when the visitor rests on the band */
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+@keyframes marquee-roll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-item {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  padding: 0 0.42em;
+}
+
+.marquee-spark {
+  color: var(--accent-warm);
+  padding: 0 0.1em;
+  font-size: 0.7em;
+}
+
+/* hero skills ticker — muted display words under the hero */
+.marquee-skills {
+  margin-top: 8px;
+}
+
+.marquee-skills .marquee-track { animation-duration: 38s; }
+
+.marquee-skills .marquee-group { padding: 16px 0; }
+
+.marquee-skills .marquee-item {
+  font-size: clamp(1.4rem, 1rem + 2.6vw, 2.7rem);
+  color: var(--text-secondary);
+}
+
+/* contact email band — the one repeating call to write */
+.marquee-contact .marquee-group { padding: 20px 0; }
+
+.marquee-contact .marquee-item {
+  font-size: clamp(1.3rem, 0.9rem + 2.2vw, 2.4rem);
+  color: var(--text-primary);
+}
+
+.marquee-contact .marquee-cta {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: clamp(0.8rem, 0.6rem + 0.9vw, 1.05rem);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-secondary);
+  padding: 0 0.42em;
+}
+
+.marquee-contact .marquee-track { transition: color 0.3s ease; }
+
+.marquee-contact:hover .marquee-item { color: var(--second); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
@@ -1826,5 +1916,9 @@ input.has-error, textarea.has-error {
     opacity: 1 !important;
     transform: none !important;
   }
+  /* marquees collapse to a single static line; hover zoom turns off */
+  .marquee-track { animation: none !important; transform: none !important; }
+  .marquee-group + .marquee-group { display: none; }
+  .project-card:hover .preview-shot { transform: none !important; }
 }
 

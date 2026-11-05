@@ -9,11 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
     localStorage.setItem(KEY, theme);
-    const icon = toggleBtn.querySelector('i');
-    if (icon) {
-      icon.setAttribute('data-lucide', theme === 'dark' ? 'sun' : 'moon');
-      if (window.lucide) lucide.createIcons();
-    }
   }
 
   applyTheme(root.getAttribute('data-theme') || 'dark');
@@ -78,7 +73,8 @@ function currentLang() {
     localStorage.setItem('portfolio-lang', lang);
 
     document.querySelectorAll('[data-en][data-es]').forEach(el => {
-      el.textContent = el.dataset[lang];
+      const next = el.dataset[lang];
+      if (el.textContent !== next) el.textContent = next;
     });
     document.querySelectorAll('[data-en-placeholder]').forEach(el => {
       el.placeholder = lang === 'en' ? el.dataset.enPlaceholder : el.dataset.esPlaceholder;
@@ -199,7 +195,10 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 /* ===================================================================
-   SCROLL TO TOP
+   SCROLL — back-to-top + WhatsApp FAB
+   -------------------------------------------------------------------
+   One passive listener, applied on the next frame. The FAB hides while
+   scrolling down so it does not sit on unread body copy (about.html).
    =================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.createElement("button");
@@ -210,32 +209,31 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.appendChild(btn);
 
   btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-  window.addEventListener("scroll", () => {
-    btn.classList.toggle("visible", window.scrollY > 400);
-  }, { passive: true });
-});
 
-/* ===================================================================
-   WHATSAPP FAB — hide while scrolling down through body copy
-   -------------------------------------------------------------------
-   Fixed position means it can land on top of a line of text on long
-   pages (about.html) on mobile. Hiding it on downward scroll keeps it
-   clear of text the visitor is about to read; scrolling back up (or
-   resting at the top) brings it back.
-   =================================================================== */
-document.addEventListener("DOMContentLoaded", () => {
   const waBtn = document.querySelector(".whatsapp-btn");
-  if (!waBtn) return;
-
   const DIRECTION_THRESHOLD = 6;   // ignore sub-pixel jitter from layout shifts / momentum scroll
   let lastY = window.scrollY;
-  window.addEventListener("scroll", () => {
+  let ticking = false;
+
+  function onScrollFrame() {
     const y = window.scrollY;
-    const delta = y - lastY;
-    if (Math.abs(delta) < DIRECTION_THRESHOLD) return;
-    waBtn.classList.toggle("is-hidden", delta > 0 && y > 80);
-    lastY = y;
+    btn.classList.toggle("visible", y > 400);
+    if (waBtn) {
+      const delta = y - lastY;
+      if (Math.abs(delta) >= DIRECTION_THRESHOLD) {
+        waBtn.classList.toggle("is-hidden", delta > 0 && y > 80);
+        lastY = y;
+      }
+    }
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(onScrollFrame);
   }, { passive: true });
+  onScrollFrame();
 });
 
 /* ===================================================================
